@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/services/blog/blog.service';
-import { Blog } from 'src/app/classes/blog';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
 
@@ -14,7 +13,6 @@ export class CreateBlogComponent implements OnInit {
 
   authorId = this._auth.authorId()
   
-  blogModel = new Blog('','',`${this.authorId}`,''.split(','),'',[''],false)
   success:any;
   blogData = {
     title : '',
