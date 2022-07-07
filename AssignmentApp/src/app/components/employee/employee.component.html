@@ -1,0 +1,70 @@
+<!-- <p>employee works!</p> -->
+ <!-- {{ employeeData |json}} -->
+<h1>{{ employeeData.id ? "Update Student" : "Add Student" }}</h1>
+
+<form #EmployeeForm="ngForm" (ngSubmit)="data()">
+  <label> name</label>
+  <input type="text" name="name" placeholder="Ename" [(ngModel)]="employeeData.name"/><br />
+
+  <label> surname</label>
+  <input type="text" name="surname" placeholder="surname" [(ngModel)]="employeeData.surname"/><br />
+
+  <label>salary</label>
+  <input type="number" name="salary" placeholder="salary" [(ngModel)]="employeeData.salary"/><br />
+
+  <label>address</label>
+  <input type="text" name="address" placeholder="address" [(ngModel)]="employeeData.address"/><br />
+
+  <label>gender</label>
+  <input type="text" name="gender" placeholder="gender" [(ngModel)]="employeeData.gender"/><br />
+
+  <label>age</label>
+  <input type="number" name="age"  placeholder="age" [(ngModel)]="employeeData.age"/><br />
+
+  <label>phone</label>
+  <input type="number" name="phone" placeholder="phone" [(ngModel)]="employeeData.phone"/><br />
+
+  <button type="submit">submit</button>
+</form> 
+
+
+<table>
+  <tr>
+    <th>id</th>
+    <th>name</th>
+    <th>surname</th>
+    <th>gender</th>
+    <th>salary</th>
+    <th>address</th>
+    <th>age</th>
+    <th>phone</th>
+    <th>action</th>
+  </tr>
+  <tr *ngFor="let singleData of employees">
+    <td>{{ singleData.id }}</td>
+    <td>{{ singleData.name }}</td>
+    <td>{{ singleData.surname }}</td>
+    <td>{{ singleData.gender }}</td>
+    <td>{{ singleData.salary }}</td>
+    <td>{{ singleData.address }}</td>
+    <td>{{ singleData.age }}</td>
+    <td>{{ singleData.phone }}</td>
+    <td>
+      <button type="button" (click)="fillData(singleData)">edit</button>
+      <button type="button" (click)="delete(singleData.id)">Delete</button>
+    </td>
+  </tr>
+</table>
+
+
+<p>single-employee</p>
+<ul *ngFor="let single of employees">
+  <li>{{ single.id }}</li>
+  <li>{{ single.name }}</li>
+  <li>{{ single.surname }}</li>
+  <li>{{ single.gender }}</li>
+  <li>{{ single.salary }}</li>
+  <li>{{ single.address }}</li>
+  <li>{{ single.age }}</li>
+  <li>{{ single.phone }}</li>
+</ul>

@@ -1,0 +1,26 @@
+<p>get-products works!</p>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Price</th>
+    <th>Description</th>
+  </tr>
+  <tr *ngFor="let singleProduct of productList">
+    <td>{{singleProduct.id}}</td>
+    <td>{{singleProduct.title}}</td>
+    <td>{{singleProduct.price}}</td>
+    <td>{{singleProduct.description}}</td>
+  </tr>
+</table>
+
+
+
+<p>get-employee works!</p>
+<h2> Employee List </h2>
+<ul *ngFor ="let employee of employees">
+  <li> {{employee.title}} </li>
+
+
+  <p>get-single-product works!</p>
+<p>{{ urlData | json}}</p>

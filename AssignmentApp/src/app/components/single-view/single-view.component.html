@@ -1,0 +1,38 @@
+ 
+ <p>single-view works</p>
+ <!-- <ul *ngFor="single of customers">
+  <li>{{single.id}}</li>
+  <li>{{single.title}}</li>
+  <li>{{single.price}}</li>
+  <li>{{single.description}}</li>
+</ul> -->
+{{customers | json}}
+<table>
+  <tr>
+    <th>id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Gender</th>
+    <th>Mobile</th>
+    <th>Age</th>
+    <th>Pincode</th>
+    <th>City</th>
+    <th>phone</th>
+    <th>TandC</th>
+  </tr>
+  <tr>
+    <td>{{ customers.id }}</td>
+    <td>{{ customers.Name }}</td>
+    <td>{{ customers.Email }}</td>
+    <td>{{ customers.Password }}</td>
+    <td>{{ customers.Gender }}</td>
+    <td>{{ customers.Mobile }}</td>
+    <td>{{ customers.Age }}</td>
+    <td>{{ customers.Pincode }}</td>
+    <td>{{ customers.City }}</td>
+    <td>{{ customers.phone }}</td>
+    <td>{{ customers.TandC }}</td>
+  </tr>
+</table>
+<br />

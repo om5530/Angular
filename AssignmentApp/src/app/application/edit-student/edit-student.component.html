@@ -1,0 +1,47 @@
+<p>edit-student works!</p>
+<h1>update data</h1>
+
+<form #adduser="ngForm" (ngSubmit)="updateData()">
+
+  <label>Name</label>
+  <input type="text" name="Name" #name="ngModel" required [(ngModel)]="addCustomer.Name" />
+
+  <label>Email</label>
+  <input type="email" #email="ngModel" [ required name="Email" [(ngModel)]="addCustomer.Email" />
+
+  <label>Password</label>
+  <input type="Password" #password="ngModel" required name="Password" [(ngModel)]="addCustomer.Password"/>   
+  
+  
+  <label>Gender</label>
+  <select #topic="ngModel" required required name="Gender" [(ngModel)]="addCustomer.Gender">
+  <option selected disabled value="">Gender</option>
+  <option value="MALE">male</option>
+  <option value="FEMALE">female</option>
+  </select>
+
+  <label>Mobile</label>
+  <input type="tel" #mobile="ngModel" name="Mobile" [(ngModel)]="addCustomer.Mobile" require />
+
+  <label>Age</label>
+  <input type="number" name="Age" required [(ngModel)]="addCustomer.Age" />
+
+  <label>Pincode</label>
+  <input type="number" name="Pincode" required [(ngModel)]="addCustomer.Pincode" />
+
+  <label>City</label>
+  <input type=" text" name="City" [(ngModel)]="addCustomer.City" />
+
+  <label>Please select your favorite mobile:</label><br />
+  <input type=" radio" name="fav_product" value="oneplus" [(ngModel)]="addCustomer.phone" />
+  <label>Oneplus</label><br />
+  <input type="radio" name="fav_product" value="samsung" [(ngModel)]="addCustomer.phone" />
+  <label>Sumsung</label><br />
+  <input type="radio" name="fav_product" value="apple" [(ngModel)]="addCustomer.phone" />
+  <label>Apple</label><br />
+ 
+    <input type="checkbox" required #checkbox="ngModel" name="TandC" [(ngModel)]="addCustomer.TandC" />
+   <label>T&C</label><br />
+
+  <button type="submit" class="btn btn-primary" >submit</button>
+</form>
