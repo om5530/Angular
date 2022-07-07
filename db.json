@@ -36,17 +36,7 @@
   ],
   "customers": [
     {
-      "id": 1,
-      "Name": "",
-      "Email": "alfredocovellio@gmail.com",
-      "Password": "Alfredo@123",
-      "Gender": "",
-      "Mobile": "",
-      "Age": "",
-      "Pincode": "",
-      "City": "",
-      "phone": "",
-      "TandC": ""
+
     }
   ]
 }

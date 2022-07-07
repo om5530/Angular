@@ -5,19 +5,19 @@
 <form #productForm="ngForm" (ngSubmit)="changeData()">
 
     <label>Name</label>
-    <input type="text" name="name" [(ngModel)]="student.name" />
+    <input type="text" name="name" [(ngModel)]="student.name" /><br>
 
     <label>Gender</label>
     <select name="gender" [(ngModel)]="student.gender">
       <option value="MALE">Male</option>
       <option value="FEMALE">Female</option>
-    </select>
+    </select><br>
 
     <label>Email</label>
-    <input type="email" name="email" [(ngModel)]="student.email" />
+    <input type="email" name="email" [(ngModel)]="student.email" /><br>
 
     <label>phone</label>
-    <input type="number" name="phone" [(ngModel)]="student.phone" />
+    <input type="number" name="phone" [(ngModel)]="student.phone" /><br>
 
   <button type="submit">Send Data</button>
 </form>
@@ -67,3 +67,4 @@
   </tr>
 </table> -->
 
+<hr><hr>
