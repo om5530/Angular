@@ -1,0 +1,19 @@
+{
+  "employees": [
+    {
+      "id": 1,
+      "name": "omkar",
+      "surname": "bacha",
+      "gender": "male",
+      "salary": "10000",
+      "address": "nanded",
+      "age": "22",
+      "phone": 9921279128
+    }
+  ],
+  "students": [
+  ],
+  "customers":[
+    
+  ]
+}
