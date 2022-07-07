@@ -1,0 +1,64 @@
+<div class="row pt-3">
+  <div class="col-md-4"></div>
+  <div class="col-md-4">
+    <div class="card rounded-0">
+      <div class="card-header">
+        <h3 class="" mb-0>
+          Create Blog
+        </h3>
+      </div>
+      <div class="card-body">
+        <!-- {{ blogData |  json}} -->
+        <form class="form" #BlogForm="ngForm">
+          <div class="form-group">
+            <label class="mb-1" for=""><b>Title*</b></label>
+            <input [(ngModel)]="blogData.title" #title="ngModel"
+              [class.is-invalid]="title.invalid && title.touched" name="title" type="text"
+              class="form-control  rounded-0" required>
+            <small class="text-danger" [class.d-none]="title.valid || title.untouched">Title is required</small>
+          </div>
+
+          <div class="form-group">
+            <label class="mb-1" for=""><b>Body*</b></label>
+            <input [(ngModel)]="blogData.body"  #body="ngModel"
+              [class.is-invalid]="body.invalid && body.touched" name="body" type="text"
+              class="form-control  rounded-0" required>
+            <small class="text-danger" [class.d-none]="body.valid || body.untouched">Body is required</small>
+          </div>
+
+          <div class="form-group">
+            <label class="mb-1 form-label" ><b>Tags</b><span class="fw-lighter fst-italic"> (Optional)</span></label>
+            <input [(ngModel)]="blogData.tags" #tags="ngModel"
+            [class.is-invalid]="tags.invalid && tags.touched" name="tags" type="text"
+            class="form-control  rounded-0">
+          </div>
+
+          <div class="form-group">
+            <label class="mb-1 form-label" ><b>Category*</b></label>
+            <input [(ngModel)]="blogData.category" #category="ngModel"
+            [class.is-invalid]="category.invalid && category.touched" name="category" type="text"
+            class="form-control  rounded-0" required>
+          </div>
+
+          <div class="form-group">
+            <label class="mb-1 form-label" ><b>Sub Category</b><span class="fw-lighter fst-italic"> (Optional)</span></label>
+            <input [(ngModel)]="blogData.subcategory" #subCategory="ngModel"
+            [class.is-invalid]="subCategory.invalid && subCategory.touched" name="subcategory" type="text"
+            class="form-control  rounded-0">
+          </div>
+
+          <div class=" mt-2 form-check">
+            <input [(ngModel)]="blogData.isPublished"  name="isPublished" class="form-check-input" type="checkbox" value=true id="check">
+            <label class="f fw-bold form-check-label" for="check">
+              Do you wanna publish this blog?
+            </label>
+          </div>
+
+          <button [disabled]="BlogForm.form.invalid" (click)="reset(BlogForm)" (click)="createBlog()" type="button" class="btn btn-success mt-3 float-right">Create Blog</button>
+          <span class="text-success ms-5">{{success}}</span>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>
