@@ -41,38 +41,34 @@
 
   <h1>{{addCustomer.id ? "Update customer": "Add customer"}}</h1>
 
-  <form #adduser="ngForm" (ngSubmit)="postData()">
-
+  <form (ngSubmit)="postData()">
     <label>Name</label>
-    <input type="text" name="Name" #name="ngModel" required [(ngModel)]="addCustomer.Name" />
+    <input type="text" name="Name" required [(ngModel)]="addCustomer.Name" /><br>
 
     <label>Email</label>
-    <input type="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" #email="ngModel" required name="Email"
-      [(ngModel)]="addCustomer.Email" />
+    <input type="email" required name="Email" [(ngModel)]="addCustomer.Email" /><br>
 
     <label>Password</label>
-    <input type="Password" #password="ngModel" required name="Password" [(ngModel)]="addCustomer.Password" />
-
+    <input type="Password" required name="Password" [(ngModel)]="addCustomer.Password" /><br>
 
     <label>Gender</label>
-    <select #topic="ngModel" required required name="Gender" [(ngModel)]="addCustomer.Gender">
+    <select required required name="Gender" [(ngModel)]="addCustomer.Gender">
       <option selected disabled value="">Gender</option>
       <option value="MALE">male</option>
       <option value="FEMALE">female</option>
-    </select>
+    </select><br>
 
     <label>Mobile</label>
-    <input type="tel" #mobile="ngModel" pattern="^\d{10}$" name="Mobile" [(ngModel)]="addCustomer.Mobile" required />
-
+    <input type="tel" name="Mobile" [(ngModel)]="addCustomer.Mobile" required /><br>
 
     <label>Age</label>
-    <input type="number" name="Age" required [(ngModel)]="addCustomer.Age" />
+    <input type="number" name="Age" required [(ngModel)]="addCustomer.Age" /><br>
 
     <label>Pincode</label>
-    <input type="number" name="Pincode" required [(ngModel)]="addCustomer.Pincode" />
+    <input type="number" name="Pincode" required [(ngModel)]="addCustomer.Pincode" /><br>
 
     <label>City</label>
-    <input type="text" name="City" [(ngModel)]="addCustomer.City" />
+    <input type="text" name="City" [(ngModel)]="addCustomer.City" /><br>
 
     <label>Please select your favorite mobile:</label><br />
     <input type="radio" name="fav_product" value="oneplus" [(ngModel)]="addCustomer.phone" />
@@ -82,7 +78,7 @@
     <input type="radio" name="fav_product" value="apple" [(ngModel)]="addCustomer.phone" />
     <label>Apple</label><br />
 
-    <input type="checkbox" required #checkbox="ngModel" name="TandC" [(ngModel)]="addCustomer.TandC" />
+    <input type="checkbox" required name="TandC" [(ngModel)]="addCustomer.TandC" />
     <label>T&C</label><br />
 
     <button type="submit" class="btn btn-primary">
@@ -91,4 +87,3 @@
   </form>
   <!-- <button type="button" (click)="fillData(single)"> edit</button> -->
 </div>
-<!-- {{customer | json}} -->

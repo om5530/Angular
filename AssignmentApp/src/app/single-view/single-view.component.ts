@@ -17,17 +17,9 @@ export class SingleViewComponent implements OnInit {
     if(id){
       this.dataService.getSingle(
         parseInt(id),
-        "https://fakestoreapi.com/products", 
+        "http://localhost:3000/customers", 
         (response:any)=>{this.customers = response;}
         );
     }
-
-
-    // const id = this.route.snapshot.paramMap.get('id')
-    // if(id){
-    //   this.dataService.getSingle(parseInt(id),"http://localhost:3000/customers",(success:any)=>{
-    //     this.customers=success;
-    //   })
-    //  }
   }
 }

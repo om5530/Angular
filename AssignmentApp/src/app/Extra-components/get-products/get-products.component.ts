@@ -17,22 +17,16 @@ export class GetProductsComponent implements OnInit {
       this.productList = response;
     })
 
-    this._dataService.getEmployees()
-    .subscribe((data:any) => this.employees = data);
+    this._dataService.getSingle(1, "https://fakestoreapi.com/products", (success: any) => {
+      this.urlData = success;
+    })
 
+    this._dataService.postData("https://fakestoreapi.com/products", this.urlData, (success: any) => {
+      alert("data is posted successfully");
+    })
 
-
-
-  this._dataService.getSingle(1, "https://fakestoreapi.com/products", (success: any) => {
-    this.urlData = success;
-  })
-
-  // this._dataService.postData("https://fakestoreapi.com/products", this.urlData, (success: any) => {
-  //   alert("data is posted successfully");
-  // })
-
-  // this._dataService.delete(1, "https://fakestoreapi.com/products", (success: any) => {
-  //   alert("data the deleted with given id")
-  // })
+    this._dataService.delete(1, "https://fakestoreapi.com/products", (success: any) => {
+      alert("data the deleted with given id")
+    })
 }
 }

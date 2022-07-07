@@ -54,7 +54,7 @@ export class CustomerComponent implements OnInit {
 
   getAll() {
     this._dataService.getMultiple(
-      'https://fakestoreapi.com/products',
+      'http://localhost:3000/customers',
       (success: any) => {
         this.customers = success;
       

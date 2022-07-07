@@ -3,29 +3,24 @@
   <h1>{{ student.id ? "Update Student" : "Add Student" }}</h1>
 </div>
 <form #productForm="ngForm" (ngSubmit)="changeData()">
-  <div>
+
     <label>Name</label>
     <input type="text" name="name" [(ngModel)]="student.name" />
-  </div>
-  <div>
+
     <label>Gender</label>
     <select name="gender" [(ngModel)]="student.gender">
       <option value="MALE">Male</option>
       <option value="FEMALE">Female</option>
     </select>
-  </div>
-  <div>
+
     <label>Email</label>
     <input type="email" name="email" [(ngModel)]="student.email" />
-  </div>
 
-  <div>
     <label>phone</label>
     <input type="number" name="phone" [(ngModel)]="student.phone" />
-  </div>
+
   <button type="submit">Send Data</button>
 </form>
-
 
 <table>
   <tr>
@@ -72,14 +67,3 @@
   </tr>
 </table> -->
 
-<form #studentForm="ngForm" (ngSubmit)="postData()">
-  <label>name</label>
-  <input type="text" name="name" [(ngModel)]="student.name" /><br />
-
-  <label>email</label>
-  <input type="email" name="email" [(ngModel)]="student.email" /><br />
-
-  <label>mobile</label>
-  <input type="number" name="mobile" [(ngModel)]="student.phone" /><br />
-  <button type="submit">submit</button>
-</form>

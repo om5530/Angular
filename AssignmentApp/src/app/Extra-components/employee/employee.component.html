@@ -1,4 +1,4 @@
-<!-- <p>employee works!</p> -->
+
  <!-- {{ employeeData |json}} -->
 <h1>{{ employeeData.id ? "Update Student" : "Add Student" }}</h1>
 
@@ -26,7 +26,6 @@
 
   <button type="submit">submit</button>
 </form> 
-
 
 <table>
   <tr>
@@ -56,7 +55,6 @@
   </tr>
 </table>
 
-
 <p>single-employee</p>
 <ul *ngFor="let single of employees">
   <li>{{ single.id }}</li>
@@ -68,3 +66,8 @@
   <li>{{ single.age }}</li>
   <li>{{ single.phone }}</li>
 </ul>
+
+<p>get-employee works!</p>
+<h2> Employee List </h2>
+<ul *ngFor ="let employee of employees">
+  <li> {{employee.title}} </li>

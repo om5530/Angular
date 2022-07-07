@@ -12,8 +12,41 @@
     }
   ],
   "students": [
+    {
+      "id": 1,
+      "name": "omkar",
+      "gender": "male",
+      "email": "omkarbacha@gmail.com",
+      "phone": 9921279128
+    },
+    {
+      "id": 2,
+      "name": "sai",
+      "gender": "male",
+      "email": "saiEathod@gmail.com",
+      "phone": 9922466096
+    },
+    {
+      "id": 3,
+      "name": "rupesh",
+      "gender": "male",
+      "email": "rupeshzade@gmail.com",
+      "phone": 8945613484
+    }
   ],
-  "customers":[
-    
+  "customers": [
+    {
+      "id": 1,
+      "Name": "",
+      "Email": "alfredocovellio@gmail.com",
+      "Password": "Alfredo@123",
+      "Gender": "",
+      "Mobile": "",
+      "Age": "",
+      "Pincode": "",
+      "City": "",
+      "phone": "",
+      "TandC": ""
+    }
   ]
 }

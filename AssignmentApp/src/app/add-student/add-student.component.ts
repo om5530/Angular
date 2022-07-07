@@ -26,7 +26,7 @@ export class AddStudentComponent implements OnInit {
     this.student = single;
   }
   delete(id: number) {
-    this._dataService.delete(id, 'http://localhost:3000/customers', (success: any) => {
+    this._dataService.delete(id, 'http://localhost:3000/students', (success: any) => {
       alert('data is deleted successfully');
     });
   }
@@ -38,10 +38,11 @@ export class AddStudentComponent implements OnInit {
       this.postData();
     }
   }
+  
   updateData(id: number) {
     this._dataService.updateData(
       id,
-      'http://localhost:3000/customers',
+      'http://localhost:3000/students',
       this.student,
       (success: any) => {
         alert('data is updated');
@@ -52,7 +53,7 @@ export class AddStudentComponent implements OnInit {
 
   getAll() {
     this._dataService.getMultiple(
-      'https://fakestoreapi.com/products',
+      'http://localhost:3000/students',
       (success: any) => {
         this.students = success;
 
@@ -62,7 +63,7 @@ export class AddStudentComponent implements OnInit {
 
   postData() {
     this._dataService.postData(
-      'http://localhost:3000/customers',
+      'http://localhost:3000/students',
       this.student,
       (success: any) => {
         this.student = {

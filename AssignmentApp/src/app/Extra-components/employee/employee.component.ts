@@ -35,6 +35,10 @@ export class EmployeeComponent implements OnInit {
         }
       );
     }
+
+    this._dataService.getEmployees()
+    .subscribe((data:any) => this.employees = data);
+
   }
   data() {
     if (this.employeeData.id) {
