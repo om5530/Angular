@@ -36,7 +36,17 @@
   ],
   "customers": [
     {
-
+      "id": 1,
+      "Name": "omkar",
+      "Email": "alfredocovellio@gmail.com",
+      "Password": "Alfredo@123",
+      "Gender": "",
+      "Mobile": "9921279128",
+      "Age": 22,
+      "Pincode": 78945,
+      "City": "nande",
+      "phone": "samsung",
+      "TandC": true
     }
   ]
 }

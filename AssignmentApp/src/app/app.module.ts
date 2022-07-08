@@ -12,6 +12,7 @@ import { EditStudentComponent } from './edit-student/edit-student.component';
 import { FormsModule } from '@angular/forms';
 import { EmployeeComponent } from './Extra-components/employee/employee.component';
 import { GetProductsComponent } from './Extra-components/get-products/get-products.component';
+import { StudentSingleViewComponent } from './add-student/student-single-view/student-single-view.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,8 +22,7 @@ import { GetProductsComponent } from './Extra-components/get-products/get-produc
     AddStudentComponent,
     CustomerComponent,
     EditStudentComponent,
-    
-
+    StudentSingleViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -30,7 +30,6 @@ import { GetProductsComponent } from './Extra-components/get-products/get-produc
     HttpClientModule,
     RouterModule,
     FormsModule
-    
   ],
   providers: [DataService],
   bootstrap: [AppComponent]

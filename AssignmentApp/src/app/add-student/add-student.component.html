@@ -41,6 +41,7 @@
       <button type="button" (click)="fillData(single)">Edit</button>
       <button type="button" (click)="delete(single.id)">Delete</button>
     </td>
+    <td><a [routerLink]="['/studentSingleView', single.id]"> view</a></td>
   </tr>
 </table>
 

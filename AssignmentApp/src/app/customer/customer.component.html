@@ -1,41 +1,3 @@
-<p>customer works!</p>
-<table>
-  <tr>
-    <th>Id</th>
-    <th>Name</th>
-    <th>Email</th>
-    <th>Password</th>
-    <th>Gender</th>
-    <th>Mobile</th>
-    <th>Age</th>
-    <th>Pincode</th>
-    <th>City</th>
-    <th>phone</th>
-    <th>T&C</th>
-    <th>delete</th>
-    <th>Edit</th>
-    <th>GS</th>
-  </tr>
-  <tr *ngFor="let single of customers">
-    <td>{{ single.id }}</td>
-    <td>{{ single.Name }}</td>
-    <td>{{ single.Email }}</td>
-    <td>{{ single.Password }}</td>
-    <td>{{ single.Gender }}</td>
-    <td>{{ single.Mobile }}</td>
-    <td>{{ single.Age }}</td>
-    <td>{{ single.Pincode }}</td>
-    <td>{{ single.City }}</td>
-    <td>{{ single.phone }}</td>
-    <td>{{ single.TandC }}</td>
-    <td>
-      <button type="button" (click)="removeData(single.id)">delete</button>
-    </td>
-    <td><a [routerLink]="['/edit', single.id]"> edit</a></td>
-    <td><a [routerLink]="['/singleView', single.id]"> view</a></td>
-  </tr>
-</table>
-
 <h1 class=" text-center text-warning">FILL CUSTOMER DETAILS</h1>
 <div class="container mb-5 border border-primary">
 
@@ -87,5 +49,42 @@
   </form>
   <!-- <button type="button" (click)="fillData(single)"> edit</button> -->
 </div>
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Password</th>
+    <th>Gender</th>
+    <th>Mobile</th>
+    <th>Age</th>
+    <th>Pincode</th>
+    <th>City</th>
+    <th>phone</th>
+    <th>T&C</th>
+    <th>delete</th>
+    <th>Edit</th>
+    <th>GS</th>
+  </tr>
+  <tr *ngFor="let single of customers">
+    <td>{{ single.id }}</td>
+    <td>{{ single.Name }}</td>
+    <td>{{ single.Email }}</td>
+    <td>{{ single.Password }}</td>
+    <td>{{ single.Gender }}</td>
+    <td>{{ single.Mobile }}</td>
+    <td>{{ single.Age }}</td>
+    <td>{{ single.Pincode }}</td>
+    <td>{{ single.City }}</td>
+    <td>{{ single.phone }}</td>
+    <td>{{ single.TandC }}</td>
+    <td>
+      <button type="button" (click)="removeData(single.id)">delete</button>
+    </td>
+    <td><a [routerLink]="['/edit', single.id]"> edit</a></td>
+    <td><a [routerLink]="['/singleView', single.id]"> view</a></td>
+  </tr>
+</table>
+
 
 <hr><hr>
