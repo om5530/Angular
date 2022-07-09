@@ -6,6 +6,7 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RegisterComponent } from './components/register/register.component';
+import { UrlShortnerComponent } from './components/url-shortner/url-shortner.component';
 
 const routes: Routes = [
   {
@@ -32,6 +33,10 @@ const routes: Routes = [
   {
     path:'getBlog',
     component:GetBlogComponent
+  },
+  {
+    path: 'urlshortner',
+    component: UrlShortnerComponent
   },
   {
     path:'**', //this is called wild card

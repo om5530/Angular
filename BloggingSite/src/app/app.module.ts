@@ -14,6 +14,7 @@ import { HomeComponent } from './components/home/home.component'
 import { TokenInterceptorService } from './services/interceptor/token-interceptor.service';
 import { CreateBlogComponent } from './components/blog/create-blog/create-blog.component';
 import { GetBlogComponent } from './components/blog/get-blog/get-blog.component';
+import { UrlShortnerComponent } from './components/url-shortner/url-shortner.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,8 @@ import { GetBlogComponent } from './components/blog/get-blog/get-blog.component'
     PageNotFoundComponent,
     HomeComponent,
     CreateBlogComponent,
-    GetBlogComponent
+    GetBlogComponent,
+    UrlShortnerComponent
   ],
   imports: [
     BrowserModule,
