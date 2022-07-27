@@ -1,0 +1,17 @@
+<p>pipes works!</p>
+<h1>{{name | uppercase}}</h1>  
+<!-- uppercase pipe -->
+<h1>{{name | lowercase}}</h1>
+<h1>{{name}}</h1>
+<h1>{{today | date:"fullDate"}}</h1> <!--we can send parameter also  -->
+<h1>{{capString(name)}}</h1>
+
+<!--  Advance pipes-->
+<h1>{{name | slice : 3 : 4 |uppercase}}</h1>
+<h2>{{user}}</h2>
+<h2>{{user | json}}</h2>
+<h2>{{2000.3000 | number: '2.2-3'}}</h2>
+<h2>{{2.3 | number: '3.3-5'}}</h2>
+<h2>{{20 |currency:'USD'}}</h2>
+<h2>{{20 |currency:'GBP'}}</h2>
+<h2>{{20 |currency:'INR'}}</h2>
