@@ -1,4 +1,4 @@
-<div class="row pt-3">
+<div id="intro" class="row pt-3">
   <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="card rounded-0">
@@ -56,9 +56,6 @@
             </div>
           </div>
 
-
-
-
           <div class="form-group">
             <label class="mb-1" for=""><b>Email*</b></label>
             <input [(ngModel)]="registerUserData.email" #email="ngModel"
@@ -93,14 +90,13 @@
                   <li>8 characters long</li>
                   <li>1 uppercase , 1 lowercase character</li>
                   <li>1 special character & 1 number</li>
-
                 </ul>
               </small>
             </div>
           </div>
           <button [disabled]="userForm.form.invalid" (click)="registeringUser()" type="button"
             class="btn btn-primary mt-3 float-right">Register</button>
-            <span class="text-success pt-3 mt-2 ms-3">{{success}}</span>
+          <!-- <span class="text-success pt-3 mt-2 ms-3">{{success}}</span> -->
         </form>
       </div>
     </div>

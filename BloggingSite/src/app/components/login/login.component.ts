@@ -29,8 +29,15 @@ export class LoginComponent implements OnInit {
            localStorage.setItem('token',res.data.token)
            localStorage.setItem('authorId',res.data.authorId)
           this.success = res.message
+          alert(this.success)  
+          setTimeout(() => {
+            this._router.navigate(['/blog'])
+          }, 1000);
         },
-        error: (e) =>  {this.error = e.error.message}
+        error: (e) =>  {
+          this.error = e.error.message
+          alert(this.error)
+        }
     }
     )
   }

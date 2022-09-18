@@ -203,7 +203,7 @@ const deleteBlog = async  (req, res) =>{
     blogData.isDeleted = true;
     blogData.deletedAt = new Date().toISOString();
     await blogData.save();
-    return res.status(200).send({ message: "successfully Deleted" });
+    return res.status(200).send({ message: "Successfully deleted" });
 
   } catch (err) {
     return res.status(500).send({ status: false, err: err.message });
@@ -270,5 +270,28 @@ const deleteByQuery = async  (req, res) =>{
   }
 };
 
+const getSingleById = async (req,res) =>{
+   try {
+       let BlogId = req.params.blogId;
+      //  console.log(BlogId)
+ if (!isValidObjectId(BlogId)) {
+   return res.status(400).send({ status: false, msg: "BlogId is Invalid" });
+ }
+//  console.log('omkae');
+ let blog = await blogModels.findById(BlogId);
+       
+ res.status(200).send({status:true,message:'Blog found Successfully.',data:blog})
+   } catch (err) {
+     return res.status(500).send({ status: false, err: err.message });
+   }
+}
 
-module.exports = {createBlogs , getBlogs, updateBlogs, deleteBlog, deleteByQuery}
+
+module.exports = {
+  createBlogs,
+  getBlogs,
+  updateBlogs,
+  deleteBlog,
+  deleteByQuery,
+  getSingleById,
+};

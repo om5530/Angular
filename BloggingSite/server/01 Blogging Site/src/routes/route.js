@@ -2,7 +2,14 @@ const express = require("express");
 const router = express.Router();
 
 const { createAuthor, loginAuthor } = require("../controllers/authorController.js");
-const { createBlogs, getBlogs, updateBlogs, deleteBlog, deleteByQuery } = require("../controllers/blogController.js");
+const {
+  createBlogs,
+  getBlogs,
+  updateBlogs,
+  deleteBlog,
+  deleteByQuery,
+  getSingleById,
+} = require("../controllers/blogController.js");
 const { authentication, AuthorizationById } = require("../middleware/middleware.js")
 
 //--------------------------------------------------------------------------------------------------------------------------------
@@ -21,6 +28,9 @@ router.post("/createBlogs", authentication, createBlogs);
 
 // Get Blogs by Query.
 router.get("/getBlogs", authentication, getBlogs);
+
+//get Blog by Blog ID
+router.get("/getBlog/:blogId", getSingleById);
 
 // Update Blog by BlogId.
 router.put("/UpdateBlogs/:blogId", authentication, AuthorizationById, updateBlogs);
