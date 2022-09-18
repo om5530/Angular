@@ -46,8 +46,9 @@
           </div>
         </div>
         <button  [disabled]="LoginForm.form.invalid"  (click)="loginUser()" type="button" class="btn btn-success mt-3 float-right">Login</button>
-        <span class="text-success ms-5">{{success}}</span>
-        <span class="text-danger ms-5">{{error}}</span>
+        <!-- <span class="text-success ms-5">{{success}}</span>
+        <span class="text-danger ms-5">{{error}}</span> -->
+
        </form>
        <p class="pt-2">Don't have an account ? <a routerLink="/register">Register</a></p>
       </div>
