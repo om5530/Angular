@@ -30,7 +30,8 @@ export class RegisterComponent implements OnInit {
           this.success = res.msg
           setTimeout(() => {
             this._router.navigate(['/login'])
-          }, 3000);
+          }, 1000);
+          alert(this.success)
         },
         error: (e) =>  this.message = e.error.message,
     })
