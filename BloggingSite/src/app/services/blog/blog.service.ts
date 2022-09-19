@@ -7,7 +7,6 @@ export class BlogService {
   private _createBlogUrl = "http://localhost:3000/createBlogs"
   private _getBlogUrl = "http://localhost:3000/getBlogs"
   private _updateBlogUrl = "http://localhost:3000/UpdateBlogs/:id"
-  private _deleteByIdUrl = "http://localhost:3000/deleteBlogsById/:id"
   private _deleteByQueryUrl = "http://localhost:3000/deleteBlogsByQuery"
   constructor(private _http: HttpClient ) { }
 
@@ -23,8 +22,9 @@ export class BlogService {
     return this._http.put<any>(`${this._updateBlogUrl}/${id}`,data)
   }
 
-  deleteBlog(id:any){
-    return this._http.delete<any>(`${this._deleteByIdUrl}/${id}`)
+  deleteBlog(id: any,url:any){
+    console.log(`${url}/${id}`)
+    return this._http.delete<any>(`${url}/${id}`)
   }
   
   deleteByQuery(){
