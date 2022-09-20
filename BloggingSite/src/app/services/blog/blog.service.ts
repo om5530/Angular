@@ -6,7 +6,8 @@ import { HttpClient } from '@angular/common/http';
 export class BlogService {
   private _createBlogUrl = "http://localhost:3000/createBlogs"
   private _getBlogUrl = "http://localhost:3000/getBlogs"
-  private _updateBlogUrl = "http://localhost:3000/UpdateBlogs/:id"
+  private _getSingleBlogUrl = "http://localhost:3000"
+  private _updateBlogUrl = "http://localhost:3000/UpdateBlogs"
   private _deleteByQueryUrl = "http://localhost:3000/deleteBlogsByQuery"
   constructor(private _http: HttpClient ) { }
 
@@ -16,6 +17,10 @@ export class BlogService {
 
   getBlog(){
     return this._http.get<any>(this._getBlogUrl)
+  }
+  
+  getSingleBlog(id:any){
+    return this._http.get<any>(`${this._getSingleBlogUrl}/${id}`)
   }
 
   updateBlog(id:any,data:any){

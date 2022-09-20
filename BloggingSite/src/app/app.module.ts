@@ -15,6 +15,8 @@ import { TokenInterceptorService } from './services/interceptor/token-intercepto
 import { CreateBlogComponent } from './components/blog/create-blog/create-blog.component';
 import { GetBlogComponent } from './components/blog/get-blog/get-blog.component';
 import { UrlShortnerComponent } from './components/url-shortner/url-shortner.component';
+import { GetSingleBlogComponent } from './components/blog/get-single-blog/get-single-blog.component';
+import { GuardGuard } from './guard/guard.guard';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +26,8 @@ import { UrlShortnerComponent } from './components/url-shortner/url-shortner.com
     HomeComponent,
     CreateBlogComponent,
     GetBlogComponent,
-    UrlShortnerComponent
+    UrlShortnerComponent,
+    GetSingleBlogComponent
   ],
   imports: [
     BrowserModule,
@@ -33,7 +36,7 @@ import { UrlShortnerComponent } from './components/url-shortner/url-shortner.com
     HttpClientModule,
 
   ],
-  providers: [AuthService, BlogService, {
+  providers: [AuthService, BlogService, GuardGuard ,{
     provide: HTTP_INTERCEPTORS,
     useClass: TokenInterceptorService,
     multi: true

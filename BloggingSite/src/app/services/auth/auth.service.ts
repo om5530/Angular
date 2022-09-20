@@ -23,7 +23,7 @@ export class AuthService {
     return this._http.post<any>(this._loginUrl, data)
   }
   loggedIn(){
-    return !!localStorage.getItem('token')
+    return !!localStorage.getItem('token')  // !!Double negation   it will return true or false boolean value
   }
 
   authorId(){

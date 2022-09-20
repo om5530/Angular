@@ -7,6 +7,7 @@ import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RegisterComponent } from './components/register/register.component';
 import { UrlShortnerComponent } from './components/url-shortner/url-shortner.component';
+import { GuardGuard } from './guard/guard.guard';
 
 const routes: Routes = [
   {
@@ -28,15 +29,13 @@ const routes: Routes = [
   },
   {
     path:'blog',
-    component:CreateBlogComponent
+    component:CreateBlogComponent,
+    canActivate:[GuardGuard]
   },
   {
     path:'getBlog',
-    component:GetBlogComponent
-  },
-  {
-    path: 'urlshortner',
-    component: UrlShortnerComponent
+    component:GetBlogComponent,
+      canActivate: [GuardGuard]
   },
   {
     path:'**', //this is called wild card

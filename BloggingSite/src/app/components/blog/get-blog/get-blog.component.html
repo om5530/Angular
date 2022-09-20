@@ -1,10 +1,8 @@
-<a [routerLink]="['/getBlog']" [queryParams]="{category:'fiction' }" queryParamsHandling="merge">click</a>
-<a [routerLink]="['/getBlog']" [queryParams]="{tags:'newTags'}" queryParamsHandling="merge"> tags</a>
-<a [routerLink]="['/getBlog']" [queryParams]="{tags:'newTags'}" queryParamsHandling="merge"> tags</a>
-<button (click)="goToGetBlog()">sdfg</button>
-<!-- <table class="table">
-  <thead>
-    <tr>
+<!-- <div style="background-color:bisque">
+<table class="table table-striped">
+  <table class="table">
+    <thead>
+      <tr>
       <th scope="col">#</th>
       <th scope="col">Title</th>
       <th scope="col">Body</th>
@@ -12,36 +10,23 @@
       <th scope="col">Category</th>
       <th scope="col">Sub Category</th>
       <th scope="col">Publish</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr  *ngFor="let blog of getBlog">
-      <th scope="row">1</th>
-      <td>{{blog?.title}}</td>
-      <td>{{blog?.body}}</td>
-      <td>{{blog?.tags}}</td>
-      <td>{{blog?.category}}</td>
-      <td>{{blog?.subcategory}}</td>
-       <td *ngIf="blog?.isPublished">Yes</td>
-      <td *ngIf="!blog?.isPublished">No</td>
-    </tr>
-  </tbody>
-</table> -->
-
-<div class="row mt-5">
-  <div class="col-md-4 mb-3" *ngFor="let blog of getBlog">
-    <div class="card ">
-      <div class="card-body text-center">
-        <h5 class="card-title">{{blog?.title}}</h5>
-        <p class="card-text">{{blog?.body}}</p>
-      </div>
-              <ul class="list-group list-group-flush">
-          <li class="list-group-item " *ngIf="blog?.tags ">Tags: {{blog?.tags}}</li>
-          <li class="list-group-item " *ngIf="!blog?.tags ">Tags: --</li>
-          <li class="list-group-item">category: {{blog?.category}}</li>
-          <li class="list-group-item">Sub-Category: {{blog?.subcategory}}</li>
-        </ul>
-    </div>
-  </div>
-</div>
-<a href="#" class="btn btn-primary">Buy Tickets</a>
+      <th scope="col">Action</th>
+      </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let blog of getBlog ; let i= index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{blog?.title}}</td>
+          <td>{{blog?.body}}</td>
+          <td>{{blog?.tags}}</td>
+          <td>{{blog?.category}}</td>
+          <td>{{blog?.subcategory}}</td>
+          <td *ngIf="blog?.isPublished">Yes</td>
+          <td *ngIf="!blog?.isPublished">No</td>
+          <button type="button" (click)="fillData(blog)">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="delete(blog?._id)">Delete</button>
+        </tr>
+    </tbody>
+  </table>
+</table>
+</div> -->

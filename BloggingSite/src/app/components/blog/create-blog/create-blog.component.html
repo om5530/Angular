@@ -1,64 +1,161 @@
-<div class="row pt-3">
-  <div class="col-md-4"></div>
-  <div class="col-md-4">
-    <div class="card rounded-0">
-      <div class="card-header">
-        <h3 class="" mb-0>
-          Create Blog
-        </h3>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="card-body">
-        <!-- {{ blogData |  json}} -->
-        <form class="form" #BlogForm="ngForm">
-          <div class="form-group">
-            <label class="mb-1" for=""><b>Title*</b></label>
-            <input [(ngModel)]="blogData.title" #title="ngModel"
-              [class.is-invalid]="title.invalid && title.touched" name="title" type="text"
-              class="form-control  rounded-0" required>
-            <small class="text-danger" [class.d-none]="title.valid || title.untouched">Title is required</small>
-          </div>
-
-          <div class="form-group">
-            <label class="mb-1" for=""><b>Body*</b></label>
-            <input [(ngModel)]="blogData.body"  #body="ngModel"
-              [class.is-invalid]="body.invalid && body.touched" name="body" type="text"
-              class="form-control  rounded-0" required>
-            <small class="text-danger" [class.d-none]="body.valid || body.untouched">Body is required</small>
-          </div>
-
-          <div class="form-group">
-            <label class="mb-1 form-label" ><b>Tags</b><span class="fw-lighter fst-italic"> (Optional)</span></label>
-            <input [(ngModel)]="blogData.tags" #tags="ngModel"
-            [class.is-invalid]="tags.invalid && tags.touched" name="tags" type="text"
-            class="form-control  rounded-0">
-          </div>
-
-          <div class="form-group">
-            <label class="mb-1 form-label" ><b>Category*</b></label>
-            <input [(ngModel)]="blogData.category" #category="ngModel"
-            [class.is-invalid]="category.invalid && category.touched" name="category" type="text"
-            class="form-control  rounded-0" required>
-          </div>
-
-          <div class="form-group">
-            <label class="mb-1 form-label" ><b>Sub Category</b><span class="fw-lighter fst-italic"> (Optional)</span></label>
-            <input [(ngModel)]="blogData.subcategory" #subCategory="ngModel"
-            [class.is-invalid]="subCategory.invalid && subCategory.touched" name="subcategory" type="text"
-            class="form-control  rounded-0">
-          </div>
-
-          <div class=" mt-2 form-check">
-            <input [(ngModel)]="blogData.isPublished"  name="isPublished" class="form-check-input" type="checkbox" value=true id="check">
-            <label class="f fw-bold form-check-label" for="check">
-              Do you wanna publish this blog?
-            </label>
-          </div>
-
-          <button [disabled]="BlogForm.form.invalid" (click)="reset(BlogForm)" (click)="createBlog()" type="button" class="btn btn-success mt-3 float-right">Create Blog</button>
-          <span class="text-success ms-5">{{success}}</span>
-        </form>
+      <div class="modal-body">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores unde accusamus quis ex non aliquid quia
+        debitis eum maxime quasi natus doloribus quas praesentium rerum adipisci fuga inventore, autem neque iste rem
+        sint facere cupiditate. Ut fuga ea possimus quaerat eligendi tempora inventore nobis nesciunt voluptatum
+        reiciendis architecto accusantium ullam, quam magni quasi, nostrum qui quia ipsa a atque, autem minima expedita
+        porro fugiat? Quam alias inventore, itaque eligendi tenetur, atque, voluptatem placeat explicabo ullam
+        repudiandae voluptatum natus excepturi ea! Nobis tempore placeat quibusdam illo, similique temporibus sed magnam
+        distinctio quaerat, libero minus perspiciatis asperiores facere? Ipsum iure consequatur blanditiis, officia
+        quas, ex facilis labore soluta provident ipsa iusto sint cum optio suscipit officiis ullam, ducimus obcaecati?
+        Ipsam sit doloremque incidunt quibusdam atque magni impedit, tempore commodi ad et enim fugit, aliquam eius,
+        consequatur optio reprehenderit! Delectus unde enim asperiores. Quia, quisquam tempore! Iure facere atque
+        facilis. Neque expedita dignissimos repudiandae sint alias amet illum, consequatur quae provident, autem, facere
+        numquam explicabo nulla quia porro quo. Nam at quas eveniet. Et aut nam reiciendis eaque vel, veniam ea
+        architecto dolor enim? Nobis eum laborum odit quisquam reprehenderit laboriosam vero hic, exercitationem aliquid
+        sunt impedit vel deserunt ad, possimus, eius minima illo deleniti magnam provident recusandae? Debitis tenetur
+        incidunt tempore sit reprehenderit voluptate eum deleniti nesciunt cumque sequi libero officia vitae ab at
+        inventore vero voluptatum eos nisi, optio ipsum consequuntur adipisci animi ullam cum. Accusamus doloremque
+        facilis dignissimos dicta sint accusantium ratione quas quo possimus iusto doloribus quae animi voluptatibus
+        necessitatibus, ex beatae incidunt amet autem? Consequatur error quam minus velit, aut debitis deleniti eaque
+        reprehenderit, explicabo aliquam fuga, earum obcaecati nisi ut voluptates corrupti rem rerum sed eius delectus
+        id consequuntur. Laudantium quidem sunt earum voluptates atque molestiae enim sequi deleniti autem ipsam, neque
+        sit, iure odio minima, non temporibus odit quo possimus ipsa. Fuga soluta reiciendis veritatis laboriosam atque
+        voluptas, facilis natus consequatur laudantium, omnis placeat magni! Optio harum tempora, laudantium incidunt
+        soluta architecto? Soluta dolores molestiae consectetur? Laborum voluptates consequatur modi? Corrupti culpa
+        voluptate mollitia officia excepturi est illo veritatis, in hic animi illum quo molestias? Praesentium quos esse
+        fugiat inventore natus rerum, corrupti tenetur facere autem consectetur, laudantium pariatur libero tempore
+        eligendi minus cum accusantium iure quisquam aperiam ab recusandae voluptatum consequuntur, eos quasi. Earum
+        excepturi veritatis, ipsum doloremque, placeat quos laudantium qui id explicabo reprehenderit, mollitia hic
+        corrupti? Atque in possimus et veniam vero eos deleniti sapiente ipsum dolor qui, distinctio magni pariatur?
+        Totam quidem cupiditate temporibus deserunt molestiae voluptatem provident est. Minus, dicta commodi
+        voluptatibus obcaecati facilis tenetur et velit ipsum qui atque modi reiciendis esse laboriosam non voluptatem.
+        Necessitatibus tempora deleniti accusantium aliquam sint eum exercitationem earum numquam odio hic pariatur
+        magnam at, quaerat culpa modi optio excepturi expedita repellendus mollitia! Omnis deleniti impedit vero
+        mollitia error voluptatem, commodi aspernatur voluptatibus cum debitis pariatur perferendis nulla ut totam?
+        Labore porro adipisci nostrum aspernatur magni neque in voluptatem, voluptate facilis voluptatibus, odio ipsam
+        ipsa unde, sapiente assumenda fugit asperiores quis. Cupiditate soluta vero culpa.
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
-
   </div>
+</div>
+<div id="intro">
+  <div class="row pt-3">
+    <div class="col-md-4"></div>
+    <div class="col-md-4">
+      <div class="card rounded-0">
+        <div class="card-header">
+          <!-- <h3 class="" mb-0>
+          Create Blog
+        </h3> -->
+          <h3>{{ blogData._id ? "Update Blog" : "Create Blog" }}</h3>
+        </div>
+        <div class="card-body">
+          <!-- {{ blogData |  json}} -->
+          <form class="form" #BlogForm="ngForm">
+            <div class="form-group">
+              <label class="mb-1" for=""><b>Title*</b></label>
+              <input [(ngModel)]="blogData.title" #title="ngModel" [class.is-invalid]="title.invalid && title.touched"
+                name="title" type="text" class="form-control  rounded-0" required>
+              <small class="text-danger" [class.d-none]="title.valid || title.untouched">Title is required</small>
+            </div>
+
+            <div class="form-group">
+              <label class="mb-1" for=""><b>Body*</b></label>
+              <!-- <input [(ngModel)]="blogData.body" #body="ngModel" [class.is-invalid]="body.invalid && body.touched"
+                name="body" type="textarea" class="form-control  rounded-0" required> -->
+             <textarea name="body" placeholder="Body goes here....." [(ngModel)]='blogData.body' #body="ngModel" rows="5" cols="60" required> </textarea>
+              <small class="text-danger" [class.d-none]="body.valid || body.untouched">Body is required</small>
+            </div>
+            <!-- <textarea id="txtArea" rows="10" cols="70"></textarea> -->
+          
+            <div class="form-group">
+              <label class="mb-1 form-label"><b>Tags</b><span class="fw-lighter fst-italic"> (Optional)</span></label>
+              <input [(ngModel)]="blogData.tags" #tags="ngModel" [class.is-invalid]="tags.invalid && tags.touched"
+                name="tags" type="text" class="form-control  rounded-0">
+            </div>
+
+            <div class="form-group">
+              <label class="mb-1 form-label"><b>Category*</b></label>
+              <input [(ngModel)]="blogData.category" #category="ngModel"
+                [class.is-invalid]="category.invalid && category.touched" name="category" type="text"
+                class="form-control  rounded-0" required>
+            </div>
+
+            <div class="form-group">
+              <label class="mb-1 form-label"><b>Sub Category</b><span class="fw-lighter fst-italic">
+                  (Optional)</span></label>
+              <input [(ngModel)]="blogData.subcategory" #subCategory="ngModel"
+                [class.is-invalid]="subCategory.invalid && subCategory.touched" name="subcategory" type="text"
+                class="form-control  rounded-0">
+            </div>
+
+            <div class=" mt-2 form-check">
+              <input [(ngModel)]="blogData.isPublished" name="isPublished" class="form-check-input" type="checkbox"
+                value=true id="check">
+              <label class="f fw-bold form-check-label" for="check">
+                Do you wanna publish this blog?
+              </label>
+            </div>
+
+            <button [disabled]="BlogForm.form.invalid" (click)="reset(BlogForm)" (click)="changeData()" type="button"
+              class="btn btn-success mt-3 float-right">{{ blogData._id ? "Update Blog" : "Create Blog" }}</button>
+            <!-- <span class="text-success ms-5">{{success}}</span> -->
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- <div class="col-md-4"><button class="btn btn-warning position-absolute top-20 end-0" routerLink="/getBlog">Get Blogs</button></div> -->
+  </div>
+</div>
+<!-- ------------------------------ -->
+<div style="background-color:bisque">
+  <table class="table table-striped">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Title</th>
+          <th scope="col">Body</th>
+          <th scope="col">Tags</th>
+          <th scope="col">Category</th>
+          <th scope="col">Sub Category</th>
+          <th scope="col">Publish</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let blog of getBlog ; let i= index">
+          <th scope="row">{{i+1}}</th>
+          <td>{{blog?.title}}</td>
+          <td>{{blog?.body}}</td>
+          <td>{{blog?.tags}}</td>
+          <td>{{blog?.category}}</td>
+          <td>{{blog?.subcategory}}</td>
+          <td *ngIf="blog?.isPublished">Yes</td>
+          <td *ngIf="!blog?.isPublished">No</td>
+
+          <!-- Button trigger modal -->
+          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+            View
+          </button>
+          <!-- <a [routerLink]="['/getBlog', blog?._id]"> view</a> -->
+          <button type="button" class="btn btn-secondary" (click)="fillData(blog)">Edit</button>
+          <button type="button" class="btn btn-danger" (click)="delete(blog?._id)">Delete</button>
+
+        </tr>
+      </tbody>
+    </table>
+  </table>
 </div>
