@@ -17,6 +17,7 @@ import { GetBlogComponent } from './components/blog/get-blog/get-blog.component'
 import { UrlShortnerComponent } from './components/url-shortner/url-shortner.component';
 import { GetSingleBlogComponent } from './components/blog/get-single-blog/get-single-blog.component';
 import { GuardGuard } from './guard/guard.guard';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     AppComponent,
@@ -34,6 +35,7 @@ import { GuardGuard } from './guard/guard.guard';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    BrowserAnimationsModule,
 
   ],
   providers: [AuthService, BlogService, GuardGuard ,{
