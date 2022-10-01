@@ -4,11 +4,11 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root'
 })
 export class BlogService {
-  private _createBlogUrl = "http://localhost:3000/createBlogs"
-  private _getBlogUrl = "http://localhost:3000/getBlogs"
-  private _getSingleBlogUrl = "http://localhost:3000"
-  private _updateBlogUrl = "http://localhost:3000/UpdateBlogs"
-  private _deleteByQueryUrl = "http://localhost:3000/deleteBlogsByQuery"
+  private _createBlogUrl = "https://bloggingsite12.herokuapp.com/createBlogs"
+  private _getBlogUrl = "https://bloggingsite12.herokuapp.com/getBlogs"
+  private _getSingleBlogUrl = "https://bloggingsite12.herokuapp.com/getBlog/:blogId"
+  private _updateBlogUrl = "https://bloggingsite12.herokuapp.com/UpdateBlogs"
+  private _deleteByQueryUrl = "https://bloggingsite12.herokuapp.com/deleteBlogsByQuery"
   constructor(private _http: HttpClient ) { }
 
   createBlog(data:any){

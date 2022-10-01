@@ -12,7 +12,7 @@ export class CreateBlogComponent implements OnInit {
   authorId = this._auth.authorId()
   getBlog: any;
   success:any;
-  url = `http://localhost:3000/getBlogs?authorId=${this.authorId}`
+  url = `https://bloggingsite12.herokuapp.com/getBlogs?authorId=${this.authorId}`
   blogData = {
     _id:null,
     title : '',
@@ -56,7 +56,7 @@ export class CreateBlogComponent implements OnInit {
   }
 
   getMultiple(){
-    this._auth.getUsers(`http://localhost:3000/getBlogs?authorId=${this.authorId}`)
+    this._auth.getUsers(this.url)
   .subscribe(
     {
       next: (res) => {

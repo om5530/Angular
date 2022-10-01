@@ -18,6 +18,7 @@ import { UrlShortnerComponent } from './components/url-shortner/url-shortner.com
 import { GetSingleBlogComponent } from './components/blog/get-single-blog/get-single-blog.component';
 import { GuardGuard } from './guard/guard.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatDialogModule } from '@angular/material/dialog'
 @NgModule({
   declarations: [
     AppComponent,
@@ -36,7 +37,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     FormsModule,
     HttpClientModule,
     BrowserAnimationsModule,
-
+    MatDialogModule
   ],
   providers: [AuthService, BlogService, GuardGuard ,{
     provide: HTTP_INTERCEPTORS,

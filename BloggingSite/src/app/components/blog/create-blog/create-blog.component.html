@@ -7,41 +7,6 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Asperiores unde accusamus quis ex non aliquid quia
-        debitis eum maxime quasi natus doloribus quas praesentium rerum adipisci fuga inventore, autem neque iste rem
-        sint facere cupiditate. Ut fuga ea possimus quaerat eligendi tempora inventore nobis nesciunt voluptatum
-        reiciendis architecto accusantium ullam, quam magni quasi, nostrum qui quia ipsa a atque, autem minima expedita
-        porro fugiat? Quam alias inventore, itaque eligendi tenetur, atque, voluptatem placeat explicabo ullam
-        repudiandae voluptatum natus excepturi ea! Nobis tempore placeat quibusdam illo, similique temporibus sed magnam
-        distinctio quaerat, libero minus perspiciatis asperiores facere? Ipsum iure consequatur blanditiis, officia
-        quas, ex facilis labore soluta provident ipsa iusto sint cum optio suscipit officiis ullam, ducimus obcaecati?
-        Ipsam sit doloremque incidunt quibusdam atque magni impedit, tempore commodi ad et enim fugit, aliquam eius,
-        consequatur optio reprehenderit! Delectus unde enim asperiores. Quia, quisquam tempore! Iure facere atque
-        facilis. Neque expedita dignissimos repudiandae sint alias amet illum, consequatur quae provident, autem, facere
-        numquam explicabo nulla quia porro quo. Nam at quas eveniet. Et aut nam reiciendis eaque vel, veniam ea
-        architecto dolor enim? Nobis eum laborum odit quisquam reprehenderit laboriosam vero hic, exercitationem aliquid
-        sunt impedit vel deserunt ad, possimus, eius minima illo deleniti magnam provident recusandae? Debitis tenetur
-        incidunt tempore sit reprehenderit voluptate eum deleniti nesciunt cumque sequi libero officia vitae ab at
-        inventore vero voluptatum eos nisi, optio ipsum consequuntur adipisci animi ullam cum. Accusamus doloremque
-        facilis dignissimos dicta sint accusantium ratione quas quo possimus iusto doloribus quae animi voluptatibus
-        necessitatibus, ex beatae incidunt amet autem? Consequatur error quam minus velit, aut debitis deleniti eaque
-        reprehenderit, explicabo aliquam fuga, earum obcaecati nisi ut voluptates corrupti rem rerum sed eius delectus
-        id consequuntur. Laudantium quidem sunt earum voluptates atque molestiae enim sequi deleniti autem ipsam, neque
-        sit, iure odio minima, non temporibus odit quo possimus ipsa. Fuga soluta reiciendis veritatis laboriosam atque
-        voluptas, facilis natus consequatur laudantium, omnis placeat magni! Optio harum tempora, laudantium incidunt
-        soluta architecto? Soluta dolores molestiae consectetur? Laborum voluptates consequatur modi? Corrupti culpa
-        voluptate mollitia officia excepturi est illo veritatis, in hic animi illum quo molestias? Praesentium quos esse
-        fugiat inventore natus rerum, corrupti tenetur facere autem consectetur, laudantium pariatur libero tempore
-        eligendi minus cum accusantium iure quisquam aperiam ab recusandae voluptatum consequuntur, eos quasi. Earum
-        excepturi veritatis, ipsum doloremque, placeat quos laudantium qui id explicabo reprehenderit, mollitia hic
-        corrupti? Atque in possimus et veniam vero eos deleniti sapiente ipsum dolor qui, distinctio magni pariatur?
-        Totam quidem cupiditate temporibus deserunt molestiae voluptatem provident est. Minus, dicta commodi
-        voluptatibus obcaecati facilis tenetur et velit ipsum qui atque modi reiciendis esse laboriosam non voluptatem.
-        Necessitatibus tempora deleniti accusantium aliquam sint eum exercitationem earum numquam odio hic pariatur
-        magnam at, quaerat culpa modi optio excepturi expedita repellendus mollitia! Omnis deleniti impedit vero
-        mollitia error voluptatem, commodi aspernatur voluptatibus cum debitis pariatur perferendis nulla ut totam?
-        Labore porro adipisci nostrum aspernatur magni neque in voluptatem, voluptate facilis voluptatibus, odio ipsam
-        ipsa unde, sapiente assumenda fugit asperiores quis. Cupiditate soluta vero culpa.
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
@@ -50,6 +15,7 @@
     </div>
   </div>
 </div>
+<button (click)="openDialog()">open dialog</button>
 <div id="intro">
   <div class="row pt-3">
     <div class="col-md-4"></div>
@@ -72,10 +38,9 @@
             </div>
 
             <div class="form-group">
-              <label class="mb-1" for=""><b>Body*</b></label>
-              <!-- <input [(ngModel)]="blogData.body" #body="ngModel" [class.is-invalid]="body.invalid && body.touched"
-                name="body" type="textarea" class="form-control  rounded-0" required> -->
-             <textarea name="body" placeholder="Body goes here....." [(ngModel)]='blogData.body' #body="ngModel" rows="5" cols="60" required> </textarea>
+
+              <label for="12" class="fw-bold">Body*</label>
+              <textarea  name="body" placeholder="Body goes here....." [(ngModel)]='blogData.body' #body="ngModel" class="form-control" id="12" rows="3" required></textarea>
               <small class="text-danger" [class.d-none]="body.valid || body.untouched">Body is required</small>
             </div>
             <!-- <textarea id="txtArea" rows="10" cols="70"></textarea> -->
