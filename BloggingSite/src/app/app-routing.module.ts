@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { BlogComponent } from './components/blog/blog.component';
 import { CreateBlogComponent } from './components/blog/create-blog/create-blog.component';
-import { GetBlogComponent } from './components/blog/get-blog/get-blog.component';
+import { GetSingleBlogComponent } from './components/blog/get-single-blog/get-single-blog.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
@@ -29,13 +30,12 @@ const routes: Routes = [
   },
   {
     path:'blog',
-    component:CreateBlogComponent,
+    component:BlogComponent,
     canActivate:[GuardGuard]
   },
   {
-    path:'getBlog',
-    component:GetBlogComponent,
-      canActivate: [GuardGuard]
+    path:'single/:id',
+    component:GetSingleBlogComponent
   },
   {
     path:'**', //this is called wild card

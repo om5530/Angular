@@ -109,5 +109,8 @@
       }
     }
   },
-  "defaultProject": "BloggingSite"
+  "defaultProject": "BloggingSite",
+  "cli": {
+    "analytics": "77ae07bf-5b7c-433b-b642-cc3a60e75390"
+  }
 }

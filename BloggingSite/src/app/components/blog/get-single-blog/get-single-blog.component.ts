@@ -14,9 +14,11 @@ export class GetSingleBlogComponent implements OnInit {
 
   ngOnInit(): void {
     const id = this.route.snapshot.paramMap.get('id');
+    console.log(id)
     if (id) {
-      this._blog.getSingleBlog(
-        parseInt(id),
+      this._blog.getSingleBlog(`localhost:3000/getBlog`,
+        // parseInt(id),
+        id,
       ).subscribe(
         {
           next: (res) => {

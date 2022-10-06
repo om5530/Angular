@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GetBlogComponent } from './get-blog.component';
+import { DummyDialogComponent } from './dummy-dialog.component';
 
-describe('GetBlogComponent', () => {
-  let component: GetBlogComponent;
-  let fixture: ComponentFixture<GetBlogComponent>;
+describe('DummyDialogComponent', () => {
+  let component: DummyDialogComponent;
+  let fixture: ComponentFixture<DummyDialogComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GetBlogComponent ]
+      declarations: [ DummyDialogComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(GetBlogComponent);
+    fixture = TestBed.createComponent(DummyDialogComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

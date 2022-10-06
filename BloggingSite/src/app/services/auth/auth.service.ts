@@ -15,9 +15,6 @@ export class AuthService {
   registerUser(data:any){
     return this._http.post<any>(this._registerUrl, data)
   }
-  getUsers(url:any){
-    return this._http.get<any>(url)
-  }
 
   loginUser(data:any){
     return this._http.post<any>(this._loginUrl, data)

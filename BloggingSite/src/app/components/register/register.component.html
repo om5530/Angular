@@ -2,31 +2,32 @@
   <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="card rounded-0">
-      <div class="card-header">
-        <h3 class="" mb-0>
+      <div class="card-header ">
+        <h3 class="fw-bold" mb-0>
           Register
         </h3>
       </div>
       <div class="card-body">
         <!-- {{registerUserData | json}} -->
         <form class="form" #userForm="ngForm">
-          <div class="form-group">
-            <label class="mb-1" for=""><b>First Name*</b></label>
+          <div class="row">
+          <div class="form-group col-lg-6  col-12">
+            <label class="form-label" for=""><b>First Name*</b></label>
             <input [(ngModel)]="registerUserData.fname" #fname="ngModel"
               [class.is-invalid]="fname.invalid && fname.touched" name="firstName" type="text"
               class="form-control  rounded-0" required>
             <small class="text-danger" [class.d-none]="fname.valid || fname.untouched"> First name is required</small>
           </div>
-          <div class="form-group">
-            <label class="mb-1" for=""><b>Last Name*</b></label>
+
+          <div class="form-group col-lg-6 col-12">
+            <label class="form-label" for=""><b>Last Name*</b></label>
             <input [(ngModel)]="registerUserData.lname" #lname="ngModel" name="lastName" type="text"
               [class.is-invalid]="lname.invalid && lname.touched" class="form-control rounded-0" required>
             <small class="text-danger" [class.d-none]="lname.valid || lname.untouched"> Last name is required</small>
           </div>
 
-
-          <div class="form-group">
-            <label class="mb-1" for=""><b>Title*</b></label>
+          <div class="form-group col-lg-12">
+            <label class="form-label" for=""><b>Title*</b></label>
             <br>
             <div class="form-check form-check-inline">
               <input [(ngModel)]="registerUserData.title" class="form-check-input" #title='ngModel' required
@@ -35,7 +36,7 @@
                 Mr
               </label>
             </div>
-            <div class="form-check form-check-inline">
+            <div class="form-check form-check-inline ">
               <input [(ngModel)]="registerUserData.title" class="form-check-input" #title='ngModel' required
                 type="radio" value="Mrs" name="title" id="Mrs">
               <label class="form-check-label" for="Mrs">
@@ -56,8 +57,8 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <label class="mb-1" for=""><b>Email*</b></label>
+          <div class="form-group col-lg-6 col-12">
+            <label class="form-label"  for=""><b>Email*</b></label>
             <input [(ngModel)]="registerUserData.email" #email="ngModel"
               [class.is-invalid]="email.invalid && email.touched"
               pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" type="text"
@@ -74,8 +75,9 @@
                 Email address must be valid</small>
             </div>
           </div>
-          <div class="form-group">
-            <label class="mb-1 mt-2" for=""><b>Password*</b></label>
+
+          <div class="form-group col-lg-6 col-12">
+            <label class="form-label" for=""><b>Password*</b></label>
             <input [(ngModel)]="registerUserData.password" name="password" #pass="ngModel"
               [class.is-invalid]="pass.invalid && pass.touched" type="password"
               pattern="^(?!\S*\s)(?=\D*\d)(?=.*[!@#$%^&*])(?=[^A-Z]*[A-Z])(?=[^a-z]*[a-z]).{8,15}$"
@@ -97,6 +99,7 @@
           <button [disabled]="userForm.form.invalid" (click)="registeringUser()" type="button"
             class="btn btn-primary mt-3 float-right">Register</button>
           <!-- <span class="text-success pt-3 mt-2 ms-3">{{success}}</span> -->
+          </div>
         </form>
       </div>
     </div>

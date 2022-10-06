@@ -122,7 +122,7 @@ const getBlogs = async  (req, res)=> {
     // We have to find blogs which are deleted and blogs which are published
     queryData.isDeleted = false;
     queryData.isPublished = true;
-    const blogData = await blogModels.find(queryData);
+    const blogData = await blogModels.find(queryData).sort('-createdAt')
 
     // Check that blogData Find has some result or not
     if (blogData.length == 0){
@@ -286,6 +286,26 @@ const getSingleById = async (req,res) =>{
    }
 }
 
+const updateAll = async (req,res) =>{
+  try{
+  const {authorId} = req.params
+
+  let findauthor = await blogModels.find({authorId:authorId, isPublished:false}).count()
+  console.log(findauthor)
+     let update = await blogModels.updateMany({findauthor},
+    {
+      $set: { isPublished :  true,isDeleted:false }
+    },
+    {
+      new:true
+    }
+    )
+  return res.send({ msg: 'updated', UpdatedData: update })
+  }
+  catch(err){
+    return res.status(500).send({ status: false, err: err.message });
+  }
+}
 
 module.exports = {
   createBlogs,
@@ -294,4 +314,5 @@ module.exports = {
   deleteBlog,
   deleteByQuery,
   getSingleById,
+  updateAll
 };

@@ -1,26 +1,26 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { MatSnackBar, MatSnackBarConfig } from '@angular/material/snack-bar';
 @Injectable({
   providedIn: 'root'
 })
 export class BlogService {
   private _createBlogUrl = "https://bloggingsite12.herokuapp.com/createBlogs"
-  private _getBlogUrl = "https://bloggingsite12.herokuapp.com/getBlogs"
-  private _getSingleBlogUrl = "https://bloggingsite12.herokuapp.com/getBlog/:blogId"
+  // private _getSingleBlogUrl = "localhost:3000/getBlog/:blogId"
   private _updateBlogUrl = "https://bloggingsite12.herokuapp.com/UpdateBlogs"
   private _deleteByQueryUrl = "https://bloggingsite12.herokuapp.com/deleteBlogsByQuery"
-  constructor(private _http: HttpClient ) { }
+  constructor(private _http: HttpClient, private snackBar: MatSnackBar) { }
 
   createBlog(data:any){
     return this._http.post<any>(this._createBlogUrl, data)
   }
 
-  getBlog(){
-    return this._http.get<any>(this._getBlogUrl)
+  getBlog(url:any){
+    return this._http.get<any>(url)
   }
   
-  getSingleBlog(id:any){
-    return this._http.get<any>(`${this._getSingleBlogUrl}/${id}`)
+  getSingleBlog(url:any,id:any){
+    return this._http.get<any>(`${url}/${id}`)
   }
 
   updateBlog(id:any,data:any){
@@ -36,4 +36,17 @@ export class BlogService {
     return this._http.delete(this._deleteByQueryUrl)
   }
 
+  openSnackBar(message: string, options?: MatSnackBarConfig, action?: string) {
+    const defaultOptions: MatSnackBarConfig = {
+      duration: 2000,
+    };
+
+    if (options) {
+      Object.assign(defaultOptions, options);
+    }
+
+    if (!action) { action = ''; }
+
+    this.snackBar.open(message, action, defaultOptions);
+  }
 }

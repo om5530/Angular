@@ -9,6 +9,7 @@ const {
   deleteBlog,
   deleteByQuery,
   getSingleById,
+  updateAll
 } = require("../controllers/blogController.js");
 const { authentication, AuthorizationById } = require("../middleware/middleware.js")
 
@@ -30,7 +31,7 @@ router.post("/createBlogs", authentication, createBlogs);
 router.get("/getBlogs", authentication, getBlogs);
 
 //get Blog by Blog ID
-router.get("/getBlog/:blogId", getSingleById);
+router.get("/getBlog/:blogId", authentication, getSingleById);
 
 // Update Blog by BlogId.
 router.put("/UpdateBlogs/:blogId", authentication, AuthorizationById, updateBlogs);
@@ -40,5 +41,8 @@ router.delete("/deleteBlogsById/:blogId", authentication, AuthorizationById, del
 
 // Delete By Query Params.
 router.delete("/deleteBlogsByQuery", authentication, deleteByQuery);
+
+
+router.patch("/update/:authorId", authentication, updateAll);
 
 module.exports = router;

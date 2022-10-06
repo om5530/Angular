@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { BlogService } from 'src/app/services/blog/blog.service';
 import { AuthService } from 'src/app/services/auth/auth.service';
-
+import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-create-blog',
@@ -23,16 +23,28 @@ export class CreateBlogComponent implements OnInit {
     subcategory:[''],
     isPublished:false
   }
-  constructor(private _blog: BlogService ,private _auth :AuthService) { }
+  
+  constructor(private _blog: BlogService ,private _auth :AuthService,
+    public dialogRef: MatDialogRef<CreateBlogComponent>,
+    @Inject(MAT_DIALOG_DATA) public edit:any
+    ) { }
 
   ngOnInit(): void {
     this.getMultiple()
-    // console.log(this.blogData.tags)
-    console.log(this.blogData)
-    // console.log(this._auth.authorId())
+    if(this.edit){
+    this.fillData()
+    }
+  }
+
+  closeDialog() {
+    this.dialogRef.close();
   }
  
   createBlog() {
+    if (!this.blogData.title || !this.blogData.body || !this.blogData.category ) {
+      this._blog.openSnackBar('Please fill required details.')
+      return;
+    }
     let tags:any[] = this.blogData.tags
     let subcategory:any[] = this.blogData.subcategory
         tags =  this.blogData.tags.toString().split(',')
@@ -44,29 +56,33 @@ export class CreateBlogComponent implements OnInit {
         next: (res) => {
           this.success = res.msg
           this.getMultiple()
-          alert(res.msg)
+          // alert(res.msg)
+          this._blog.openSnackBar(`${res.msg}`);
+          this.closeDialog()
         },
-        error: (e) => console.log(e),
+        error: (e) => {
+          this._blog.openSnackBar(`${e.statusText}`)
+         this.closeDialog()
+        }
       })
   }
 
-  fillData(single: any) {
-    this.blogData = single;
-    console.log(this.blogData)
+  fillData() {
+    this.blogData = this.edit;
   }
 
   getMultiple(){
-    this._auth.getUsers(this.url)
+    this._blog.getBlog(this.url)
   .subscribe(
     {
       next: (res) => {
         this.getBlog = res.data
-        console.log(this.getBlog)
       },
       error: (e) => console.log(e),
     }
   )
   }
+
   changeData(){
     if (this.blogData._id) {
       this.updateData(this.blogData._id);
@@ -75,6 +91,7 @@ export class CreateBlogComponent implements OnInit {
       this.createBlog();
     }
   }
+
   updateData(id: number) {
     this._blog.updateBlog(
       id,
@@ -85,36 +102,21 @@ export class CreateBlogComponent implements OnInit {
           this.getBlog = res.data
           this.getMultiple()
           console.log(this.getBlog)
-          alert(res.msg)
+          // alert(res.msg)
+          this._blog.openSnackBar(`${res.msg}`);
+          this.closeDialog()
         },
-        error: (e) => console.log(e),
+        error: (e) => {
+          // console.log(e)
+          this._blog.openSnackBar(`${e.statusText} - Please check your internet connection or try again later`)
+          this.closeDialog()
+        }
+        
       }
     )
   }
 
-  delete(id: any) {
-    this._blog.deleteBlog(id, 'http://localhost:3000/deleteBlogsById').subscribe({
-      next: (res) => {
-        // console.log(res)
-        alert(res.message)
-        this._auth.getUsers(this.url)
-          .subscribe(
-            {
-              next: (res) => {
-                this.getBlog = res.data
-                console.log(this.getBlog)
-              },
-              error: (e) => console.log(e),
-            }
-          )
-      },
-      error: (e) => {
-        alert(e.statusText)
-      }
-    })
-  }
-
-    reset(form:any){
+  reset(form:any){
       if(this.success){
         setTimeout(() => {
           return form.form.reset()

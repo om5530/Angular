@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { BlogService } from 'src/app/services/blog/blog.service';
 import { AuthService } from '../../services/auth/auth.service';
 
 @Component({
@@ -18,7 +19,7 @@ export class RegisterComponent implements OnInit {
     email: '',
     password: ''
   }
-  constructor(private _auth: AuthService, private _router: Router) { }
+  constructor(private _auth: AuthService, private _router: Router, private _blog:BlogService) { }
 
   ngOnInit(): void {
   }
@@ -31,9 +32,14 @@ export class RegisterComponent implements OnInit {
           setTimeout(() => {
             this._router.navigate(['/login'])
           }, 1000);
-          alert(this.success)
+          // alert(this.success)
+          this._blog.openSnackBar(`${res.msg}`);
         },
-        error: (e) =>  this.message = e.error.message,
+        error: (e) => { 
+          this.message = e.error.message,
+          // this._blog.openSnackBar(`${e.error.message}`);
+          this._blog.openSnackBar(`${e.error.msg}`);
+        }
     })
   }
 

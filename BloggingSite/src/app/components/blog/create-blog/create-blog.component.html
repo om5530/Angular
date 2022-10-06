@@ -1,126 +1,71 @@
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+<div class="d-flex justify-content-between" mat-dialog-title>
+  <h2 class="fw-bold">{{ blogData._id ? "Update Blog" : "Create Blog" }}</h2>
+  <button type="button" class="btn-close " mat-dialog-close aria-label="Close"></button>
+</div>
+  <mat-dialog-content class="mat-typography">
+    <form class="form" #BlogForm="ngForm">
+      <div class="row">
+        <div class="form-group col-lg-6">
+          <label class="form-label" for="Title1">Title*</label>
+          <input [(ngModel)]="blogData.title" #title="ngModel" pattern="^[a-zA-Z_]*$"
+            [class.is-invalid]="title.invalid && title.touched" name="title" type="text" id="Title1"
+            class="form-control  rounded-0" required>
+          <div *ngIf="title.errors && (title.valid || title.touched)">
+            <small [class.d-none]="title.valid || title.untouched" class="text-danger" *ngIf="title.hasError('required')">
+              Title is required</small>
+            <small [class.d-none]="title.valid || title.untouched" class="text-danger" *ngIf="title.hasError('pattern')">
+              Title is not valid</small>
+          </div>
       </div>
-      <div class="modal-body">
+      <div class="form-group col-lg-6">
+        <label for="tags1" class=" form-label">Tags<span class="fw-lighter fst-italic"> (Optional)</span></label>
+        <input [(ngModel)]="blogData.tags" id="tags1" #tags="ngModel" [class.is-invalid]="tags.invalid && tags.touched"
+          name="tags" type="text" class="form-control  rounded-0">
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+  <div class="form-group col-lg-6">
+    <label for="category1" class="form-label">Category*</label>
+    <input [(ngModel)]="blogData.category" id="category1" pattern="^[a-zA-Z_]*$" #category="ngModel"
+      [class.is-invalid]="category.invalid && category.touched" name="category" type="text"
+      class="form-control  rounded-0" required>
+          <div *ngIf="category.errors && (category.valid || category.touched)">
+            <small [class.d-none]="category.valid || category.untouched" class="text-danger" *ngIf="category.hasError('required')">
+              category is required</small>
+            <small [class.d-none]="category.valid || category.untouched" class="text-danger" *ngIf="category.hasError('pattern')">
+              category is not valid</small>
+          </div>
+      </div>
+      <div class="form-group col-lg-6">
+        <label for="subcategory1" class="form-label">Sub Category<span class="fw-lighter fst-italic">
+            (Optional)</span></label>
+        <input id="subcategory1" [(ngModel)]="blogData.subcategory" #subCategory="ngModel"
+          [class.is-invalid]="subCategory.invalid && subCategory.touched" name="subcategory" type="text"
+          class="form-control  rounded-0">
+        </div>
+      <div class="form-group">
+        <label class="form-label" for="12">Body*</label>
+        <textarea name="body" placeholder="Body goes here....." [(ngModel)]='blogData.body' pattern="^[a-zA-Z_]*$" #body="ngModel"
+          class="form-control" id="12" rows="3" required></textarea>
+        <!-- <small class="text-danger" [class.d-none]="body.valid || body.untouched">Body is required</small> -->
+          <div *ngIf="body.errors && (body.valid || body.touched)">
+            <small [class.d-none]="body.valid || body.untouched" class="text-danger"
+              *ngIf="body.hasError('required')">
+              Body is required</small>
+            <small [class.d-none]="body.valid || body.untouched" class="text-danger" *ngIf="body.hasError('pattern')">
+              Body is not valid</small>
+          </div>
+      </div>
+      
+      <div class="form-check mt-2">
+        <input [(ngModel)]="blogData.isPublished" name="isPublished" class="form-check-input" type="checkbox" value=true
+          id="check">
+        <label for="check" class="fw-bold form-check-label" for="check">
+          Do you wanna publish this blog?
+        </label>
       </div>
     </div>
-  </div>
-</div>
-<button (click)="openDialog()">open dialog</button>
-<div id="intro">
-  <div class="row pt-3">
-    <div class="col-md-4"></div>
-    <div class="col-md-4">
-      <div class="card rounded-0">
-        <div class="card-header">
-          <!-- <h3 class="" mb-0>
-          Create Blog
-        </h3> -->
-          <h3>{{ blogData._id ? "Update Blog" : "Create Blog" }}</h3>
-        </div>
-        <div class="card-body">
-          <!-- {{ blogData |  json}} -->
-          <form class="form" #BlogForm="ngForm">
-            <div class="form-group">
-              <label class="mb-1" for=""><b>Title*</b></label>
-              <input [(ngModel)]="blogData.title" #title="ngModel" [class.is-invalid]="title.invalid && title.touched"
-                name="title" type="text" class="form-control  rounded-0" required>
-              <small class="text-danger" [class.d-none]="title.valid || title.untouched">Title is required</small>
-            </div>
-
-            <div class="form-group">
-
-              <label for="12" class="fw-bold">Body*</label>
-              <textarea  name="body" placeholder="Body goes here....." [(ngModel)]='blogData.body' #body="ngModel" class="form-control" id="12" rows="3" required></textarea>
-              <small class="text-danger" [class.d-none]="body.valid || body.untouched">Body is required</small>
-            </div>
-            <!-- <textarea id="txtArea" rows="10" cols="70"></textarea> -->
-          
-            <div class="form-group">
-              <label class="mb-1 form-label"><b>Tags</b><span class="fw-lighter fst-italic"> (Optional)</span></label>
-              <input [(ngModel)]="blogData.tags" #tags="ngModel" [class.is-invalid]="tags.invalid && tags.touched"
-                name="tags" type="text" class="form-control  rounded-0">
-            </div>
-
-            <div class="form-group">
-              <label class="mb-1 form-label"><b>Category*</b></label>
-              <input [(ngModel)]="blogData.category" #category="ngModel"
-                [class.is-invalid]="category.invalid && category.touched" name="category" type="text"
-                class="form-control  rounded-0" required>
-            </div>
-
-            <div class="form-group">
-              <label class="mb-1 form-label"><b>Sub Category</b><span class="fw-lighter fst-italic">
-                  (Optional)</span></label>
-              <input [(ngModel)]="blogData.subcategory" #subCategory="ngModel"
-                [class.is-invalid]="subCategory.invalid && subCategory.touched" name="subcategory" type="text"
-                class="form-control  rounded-0">
-            </div>
-
-            <div class=" mt-2 form-check">
-              <input [(ngModel)]="blogData.isPublished" name="isPublished" class="form-check-input" type="checkbox"
-                value=true id="check">
-              <label class="f fw-bold form-check-label" for="check">
-                Do you wanna publish this blog?
-              </label>
-            </div>
-
-            <button [disabled]="BlogForm.form.invalid" (click)="reset(BlogForm)" (click)="changeData()" type="button"
-              class="btn btn-success mt-3 float-right">{{ blogData._id ? "Update Blog" : "Create Blog" }}</button>
-            <!-- <span class="text-success ms-5">{{success}}</span> -->
-          </form>
-        </div>
-      </div>
-    </div>
-    <!-- <div class="col-md-4"><button class="btn btn-warning position-absolute top-20 end-0" routerLink="/getBlog">Get Blogs</button></div> -->
-  </div>
-</div>
-<!-- ------------------------------ -->
-<div style="background-color:bisque">
-  <table class="table table-striped">
-    <table class="table">
-      <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Title</th>
-          <th scope="col">Body</th>
-          <th scope="col">Tags</th>
-          <th scope="col">Category</th>
-          <th scope="col">Sub Category</th>
-          <th scope="col">Publish</th>
-          <th scope="col">Action</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr *ngFor="let blog of getBlog ; let i= index">
-          <th scope="row">{{i+1}}</th>
-          <td>{{blog?.title}}</td>
-          <td>{{blog?.body}}</td>
-          <td>{{blog?.tags}}</td>
-          <td>{{blog?.category}}</td>
-          <td>{{blog?.subcategory}}</td>
-          <td *ngIf="blog?.isPublished">Yes</td>
-          <td *ngIf="!blog?.isPublished">No</td>
-
-          <!-- Button trigger modal -->
-          <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            View
-          </button>
-          <!-- <a [routerLink]="['/getBlog', blog?._id]"> view</a> -->
-          <button type="button" class="btn btn-secondary" (click)="fillData(blog)">Edit</button>
-          <button type="button" class="btn btn-danger" (click)="delete(blog?._id)">Delete</button>
-
-        </tr>
-      </tbody>
-    </table>
-  </table>
-</div>
+    </form>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button (click)="reset(BlogForm)" (click)="changeData()" type="button"
+      class="btn btn-success float-right">{{ blogData._id ? "Update Blog" : "Create Blog" }}</button>
+  </mat-dialog-actions>
