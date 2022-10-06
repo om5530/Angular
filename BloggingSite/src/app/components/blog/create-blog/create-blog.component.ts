@@ -108,7 +108,7 @@ export class CreateBlogComponent implements OnInit {
         },
         error: (e) => {
           // console.log(e)
-          this._blog.openSnackBar(`${e.statusText} - Please check your internet connection or try again later`)
+          this._blog.openSnackBar(`${e.statusText}`)
           this.closeDialog()
         }
         
