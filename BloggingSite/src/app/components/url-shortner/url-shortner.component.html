@@ -1,0 +1,82 @@
+<h1 class="text-center bg-primary p-5 text-white">URL Shortener</h1>
+<div class="row">
+  <div class="col-12 col-lg-7">
+    <img
+      src="https://img.freepik.com/free-vector/work-office-computer-man-woman-business-character-marketing-online-employee-technology-business-man-cartoon-co-working-flat-design-freelance_1150-41790.jpg?size=626&ext=jpg" />
+  </div>
+  <div class="col-12  col-lg-5">
+    <!-- {{data | json}} -->
+    <div class="card border-0">
+      <div class="card-body">
+        <form class="form" #LoginForm="ngForm">
+          <div class="form-group text-center">
+            <label for="input" class="h3 mt-5">Enter your URL link</label><br>
+            <input type="url" class="w-100 p-2 mb-2" placeholder="https://example.com" pattern="https://.*" name="input"
+              [(ngModel)]="data.longUrl" required />
+                <div class="preloader-container" *ngIf="loading">
+                  <!-- <mat-spinner class="mx-auto mt-3"></mat-spinner> -->
+                  <img src="../../../assets/Eclipse-1s-200px.svg" width="50px">
+                </div>
+            <iframe *ngIf="!loading" src="https://giphy.com/embed/aEoP60U47mxtxFVC3f" height="50" frameBorder="0" class="giphy-embed"
+              allowFullScreen></iframe>
+            <p><a href="../../../assets/giphy.gif"></a></p>
+            <div class="d-grid gap-2">
+              <button class="btn btn-lg btn-success font-weight-bold" type="button" (click)="post()">Shorten
+                URL</button>
+            </div>
+          </div>
+        </form>
+        <!-- <div *ngIf="result.shortUrl">
+          <table class="table-success">
+            <thead>
+              <tr>
+                <th scope="col">Short Url</th>
+                <th scope="col">Copy</th>
+                <th scope="col">Redirect Url</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <span>{{result.shortUrl}}</span>
+                <button type="button" class="btn btn-outline-primary " data-bs-toggle="tooltip" data-bs-placement="top"
+                  title="View" (click)="copy(result.shortUrl)"><i class="fa fa-copy"></i></button>
+
+                <button type="button" class="btn btn-outline-primary " data-bs-toggle="tooltip" data-bs-placement="top"
+                  title="View" (click)="myFunction(result.shortUrl)"><i class="fa fa-external-link"
+                    aria-hidden="true"></i></button>
+              </tr>
+            </tbody>
+          </table>
+        </div> -->
+  
+        <div *ngIf="result.shortUrl" class="mt-3">
+        <table class=" table table-success">
+          <thead>
+            <tr>
+              <th scope="col">Short Url</th>
+              <th scope="col">Copy</th>
+              <th scope="col">Redirect</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><span>{{result.shortUrl}}</span></td>
+              <td><button type="button" class="btn btn-outline-success " data-bs-toggle="tooltip"
+                  data-bs-placement="top" title="View" (click)="copy(result.shortUrl)"><i
+                    class="fa fa-copy"></i></button></td>
+              <td><button type="button" class="btn btn-outline-success " data-bs-toggle="tooltip"
+                  data-bs-placement="top" title="View" (click)="myFunction(result.shortUrl)"><i
+                    class="fa fa-external-link" aria-hidden="true"></i></button></td>
+            </tr>
+          </tbody>
+        </table>
+        </div>
+
+      </div>
+    </div>
+    <div>
+    </div>
+  </div>
+</div>
+
+<h3 class="container-fluid p-4 pb-0 text-center ">copyright © 2022 all rights reserved</h3>

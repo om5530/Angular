@@ -1,0 +1,85 @@
+<div class="container">
+  <div class="text-center display-5  m-2">
+  <u style="color : #bc372e;">Your Blogs</u> 
+  </div>
+  <!-- <div>
+  <form class="form row" #FilterTable="ngForm">
+    <div class="col-lg-1 h3 fw-bold">
+      Filter
+    </div>
+    <div class="form-group col-lg-2">
+      <label class="" for="111">Tags</label>
+        <input  id="111" [(ngModel)]="filter.tags"
+           name="tags" type="text"
+          class="form-control  rounded-0">
+      </div>
+    <div class="form-group  col-lg-2">
+      <label class="" for="222">Category</label>
+      <input id="222" [(ngModel)]="filter.category" name="category" type="text" class="form-control  rounded-0">
+    </div>
+    <div class="form-group col-lg-2">
+      <label class="" for="333">Sub-category</label>
+      <input id="333" name="subcategory" [(ngModel)]="filter.subcategory" type="text" class="form-control  rounded-0">
+    </div>
+    <button type="button" (click)="url1()" class="btn btn-success col-lg-1 p-0">Search</button>
+  </form>
+
+</div> -->
+    <div>
+      <span *ngIf="loading">
+          <img src="../../../assets/Ellipsis-1s-200px (1).svg" width="80px">
+        </span> 
+      <button class="float-end mt-5 shadow-lg" (click)="openDialog()" mat-raised-button color="primary">Create
+        Blog</button>
+    </div>
+    <table class="shadow-lg  container  bg-white rounded  table table-striped">
+      <!-- <div class="preloader-container" *ngIf="loading"> -->
+          <!-- <mat-spinner class="mx-auto mt-3"></mat-spinner> -->
+          <!-- <img src="../../../assets/Ellipsis-1s-200px (1).svg" width="100px">
+                                      </div> -->
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Created Date</th>
+            <th scope="col">Title</th>
+            <!-- <th scope="col">Body</th> -->
+            <th scope="col">Tags</th>
+            <th scope="col">Category</th>
+            <th scope="col">Sub Category</th>
+            <!-- <th scope="col">Publish</th> -->
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let blog of getBlog | paginate:{
+            itemsPerPage:10,
+            currentPage:page,
+            totalItems:totalLength
+          } ; let i= index ">
+            <th scope="row">{{i+1}}</th>
+            <td>{{blog?.createdAt | date}}</td>
+            <td>{{blog?.title}}</td>
+            <!-- <td>{{blog?.body}}</td> -->
+            <td *ngIf="blog?.tags == ''"> -- </td>
+            <td *ngIf="blog?.tags != ''">{{blog?.tags}}</td>
+            <td>{{blog?.category}}</td>
+            <td *ngIf="blog?.subcategory == ''"> -- </td>
+            <td *ngIf="blog?.subcategory != ''">{{blog?.subcategory}}</td>
+            <!-- <td *ngIf="blog?.isPublished">Yes</td>
+            <td *ngIf="!blog?.isPublished">No</td> -->
+            <!-- Button trigger modal -->
+            <!-- <td><a [routerLink]="['/single', blog._id]"> view</a></td> -->
+          <button type="button" class="btn btn-outline-info " data-bs-toggle="tooltip" data-bs-placement="top" title="View" (click)="openDialogView(blog)"><i class="fa fa-eye fa-thin" aria-hidden="true"></i></button>
+            <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" (click)="openDialogEdit(blog)"><i class="fa fa-edit"></i></button>
+            <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="btn btn-outline-danger" (click)="openDialogDelete(blog?._id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+          </tr>
+        </tbody>
+      </table>
+      <!--Pagination-->
+      <div>
+         <div >
+         <pagination-controls (pageChange)="page=$event"></pagination-controls>
+      </div>
+      </div>
+
+</div>
