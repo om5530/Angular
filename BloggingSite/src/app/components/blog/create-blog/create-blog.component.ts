@@ -9,6 +9,7 @@ import { MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
   styleUrls: ['./create-blog.component.scss']
 })
 export class CreateBlogComponent implements OnInit {
+  loading = false;
   authorId = this._auth.authorId()
   getBlog: any;
   success:any;
@@ -41,6 +42,7 @@ export class CreateBlogComponent implements OnInit {
   }
  
   createBlog() {
+    this.loading = true;
     if (!this.blogData.title || !this.blogData.body || !this.blogData.category ) {
       this._blog.openSnackBar('Please fill required details.')
       return;
@@ -54,6 +56,7 @@ export class CreateBlogComponent implements OnInit {
     this._blog.createBlog(this.blogData)
       .subscribe({
         next: (res) => {
+          this.loading = false;
           this.success = res.msg
           this.getMultiple()
           // alert(res.msg)
@@ -93,12 +96,14 @@ export class CreateBlogComponent implements OnInit {
   }
 
   updateData(id: number) {
+    this.loading = true;
     this._blog.updateBlog(
       id,
       this.blogData
     ).subscribe(
       {
         next: (res) => {
+          this.loading = false;
           this.getBlog = res.data
           this.getMultiple()
           console.log(this.getBlog)

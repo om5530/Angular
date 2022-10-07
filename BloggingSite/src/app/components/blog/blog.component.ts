@@ -37,32 +37,14 @@ export class BlogComponent implements OnInit {
   ngOnInit(): void {
     this.getMultiple()
     // console.log(this.tags)
-    console.log(  this.getBlog)
+    // console.log(  this.getBlog)
     
     this._route.queryParams.subscribe((query)=>{
-      console.log(query)
+      // console.log(query)
     })
     // console.log(this.getBlog)
   }
 
-
-  // url1() {
-  //  if(this.filter.tags != ''){
-  //    this.url += `&tags=${this.filter.tags}`
-  //    console.log(this.url)
-  //     // this.getMultiple()
-
-  //  }
-  //   if (this.filter.category != '') {
-  //     this.url += `&category=${this.filter.category}`
-  //     this.getMultiple()
-  //   }
-  //   if (this.filter.subcategory != '') {
-  //     this.url = `&subcategory=${this.filter.subcategory}`
-  //     this.getMultiple()
-  //   }
-
-  // }
 
   fillData(single: any) {
     // this.blogData = single;
@@ -128,16 +110,16 @@ export class BlogComponent implements OnInit {
       width: '500px',
       data: row
     });
-    console.log(this.data)
+    // console.log(this.data)
   }
 
   openDialogDelete(id:any){
     this.dialog.open(DummyDialogComponent,{
       width:'300px'
     }).afterClosed().subscribe(res=>{
-      console.log(res)
+      // console.log(res)
       if(res === 'true'){
-        console.log('asd')
+        // console.log('asd')
           this.delete(id)
           this.getMultiple()
       }

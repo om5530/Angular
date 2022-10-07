@@ -66,6 +66,10 @@
     </form>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
+      <div class="preloader-container text-center me-2" *ngIf="loading">
+        <!-- <mat-spinner class="mx-auto mt-3"></mat-spinner> -->
+        <img src="../../../assets/Eclipse-1s-200px.svg" width="50px">
+      </div>
     <button mat-button (click)="reset(BlogForm)" (click)="changeData()" type="button"
       class="btn btn-success float-right">{{ blogData._id ? "Update Blog" : "Create Blog" }}</button>
   </mat-dialog-actions>

@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="text-center display-5 m-2 p-2">
+  <div class="text-center display-5  m-2">
   <u style="color : #bc372e;">Your Blogs</u> 
   </div>
   <!-- <div>
@@ -25,18 +25,22 @@
   </form>
 
 </div> -->
-  
-<button class="float-end mb-2 shadow-lg" (click)="openDialog()" mat-raised-button color="primary">Create Blog</button>
-  <div class="pt-3">
-    <table class="shadow-lg p-3 container mb-5 bg-white rounded  table table-striped">
-        <div class="preloader-container" *ngIf="loading">
+    <div>
+      <span *ngIf="loading">
+          <img src="../../../assets/Ellipsis-1s-200px (1).svg" width="80px">
+        </span> 
+      <button class="float-end mt-5 shadow-lg" (click)="openDialog()" mat-raised-button color="primary">Create
+        Blog</button>
+    </div>
+    <table class="shadow-lg  container  bg-white rounded  table table-striped">
+      <!-- <div class="preloader-container" *ngIf="loading"> -->
           <!-- <mat-spinner class="mx-auto mt-3"></mat-spinner> -->
-          <img src="../../../assets/Ellipsis-1s-200px (1).svg" width="100px">
-        </div>
+          <!-- <img src="../../../assets/Ellipsis-1s-200px (1).svg" width="100px">
+                                      </div> -->
         <thead>
           <tr>
             <th scope="col">#</th>
-            <th scope="col">Created At</th>
+            <th scope="col">Created Date</th>
             <th scope="col">Title</th>
             <!-- <th scope="col">Body</th> -->
             <th scope="col">Tags</th>
@@ -77,5 +81,5 @@
          <pagination-controls (pageChange)="page=$event"></pagination-controls>
       </div>
       </div>
-  </div>
+
 </div>
