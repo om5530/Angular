@@ -69,9 +69,11 @@
             <td *ngIf="!blog?.isPublished">No</td> -->
             <!-- Button trigger modal -->
             <!-- <td><a [routerLink]="['/single', blog._id]"> view</a></td> -->
+            <div class="d-flex">
           <button type="button" class="btn btn-outline-info " data-bs-toggle="tooltip" data-bs-placement="top" title="View" (click)="openDialogView(blog)"><i class="fa fa-eye fa-thin" aria-hidden="true"></i></button>
             <button type="button" class="btn btn-outline-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" (click)="openDialogEdit(blog)"><i class="fa fa-edit"></i></button>
             <button type="button" data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" class="btn btn-outline-danger" (click)="openDialogDelete(blog?._id)"><i class="fa fa-trash" aria-hidden="true"></i></button>
+            </div>
           </tr>
         </tbody>
       </table>
