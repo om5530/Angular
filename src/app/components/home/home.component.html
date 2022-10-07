@@ -1,0 +1,8 @@
+<div id="intro">
+<div class="text-center container  p-5">
+<h1 class="text-white fs-1 " >Publish your passions, your way</h1>
+<p class="text-white pt-3 fs-4">Create a unique and beautiful blog easily</p>
+<button class=" mt-5 btn btn-warning text-white text-weight-bold" *ngIf="!_auth.loggedIn()" routerLink="/login" routerLinkActive="active">CREATE BLOG</button>
+<button class=" mt-5 btn btn-warning text-white text-weight-bold" *ngIf="_auth.loggedIn()" routerLink="/blog" routerLinkActive="active">CREATE BLOG</button>
+</div>
+</div>

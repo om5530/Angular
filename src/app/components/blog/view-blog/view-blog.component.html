@@ -1,0 +1,44 @@
+<div class="d-flex justify-content-between" mat-dialog-title>
+  <h2 class="fw-bold  p2">Blog Details</h2>
+  <button type="button" class="btn-close " mat-dialog-close aria-label="Close"></button>
+</div>
+
+<mat-dialog-content class="mat-typography">
+  <div class="row">
+    <div class=" col-lg-6 col-xl-6">
+      <span class="text-muted fw-bold">Title</span>
+      <p class="p1 p2">{{view?.title}}</p>
+    </div>
+    <div class=" col-lg-6 col-xl-6">
+      <span class="text-muted fw-bold">Category</span>
+      <p class="p1 p2">{{view?.category}}</p>
+    </div>
+    <div class=" col-lg-6 col-xl-6">
+      <span class="text-muted fw-bold">Tags</span>
+      <p class="p1 p2" *ngIf="view?.tags == ''">NA</p>
+      <p class="p1 p2" *ngIf="view?.tags != ''">{{view?.tags}}</p>
+    </div>
+    <div class=" col-lg-6 col-xl-6">
+      <span class="text-muted fw-bold">Sub Category</span>
+        <p class="p1 p2" *ngIf="view?.subcategory == ''">NA</p>
+      <p class="p1 p2" *ngIf="view?.subcategory != ''">{{view?.subcategory}}</p>
+   
+    </div>
+    <div class=" col-lg-6 col-xl-6">
+      <span class="text-muted fw-bold">Created Date</span>
+      <p class="p1 p2">{{view?.createdAt | date}}</p>
+    </div>
+    <div class=" col-lg-6 col-xl-6">
+      <span class="text-muted fw-bold">Modified Date</span>
+      <p class="p1 p2">{{view?.updatedAt | date}}</p>
+    </div>
+  </div>
+  <div class="text-muted">
+    <span class="text-muted fw-bold"><u>Content</u></span>
+    <p class="p1 p2" style="  text-align: justify; text-justify: inter-word">{{view?.body}}</p>
+  </div>
+
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button type="button" mat-raised-button color="primary" mat-dialog-close>OKAY</button>
+</mat-dialog-actions>
