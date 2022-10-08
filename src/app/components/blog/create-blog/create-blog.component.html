@@ -43,16 +43,18 @@
         </div>
       <div class="form-group">
         <label class="form-label" for="12">Body*</label>
-        <textarea name="body" placeholder="Body goes here....." [(ngModel)]='blogData.body' pattern="^[a-zA-Z_]*$" #body="ngModel"
+        <textarea name="body" placeholder="Body goes here....." [(ngModel)]='blogData.body' #body="ngModel"
           class="form-control" id="12" rows="3" required></textarea>
         <!-- <small class="text-danger" [class.d-none]="body.valid || body.untouched">Body is required</small> -->
-          <div *ngIf="body.errors && (body.valid || body.touched)">
+        <small [class.d-none]="body.valid || body.untouched" class="text-danger" *ngIf="body.hasError('required')">
+          Body is required</small>
+          <!-- <div *ngIf="body.errors && (body.valid || body.touched)">
             <small [class.d-none]="body.valid || body.untouched" class="text-danger"
               *ngIf="body.hasError('required')">
               Body is required</small>
             <small [class.d-none]="body.valid || body.untouched" class="text-danger" *ngIf="body.hasError('pattern')">
               Body is not valid</small>
-          </div>
+          </div> -->
       </div>
       
       <div class="form-check mt-2">
