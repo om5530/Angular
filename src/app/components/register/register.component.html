@@ -2,10 +2,16 @@
   <div class="col-md-4"></div>
   <div class="col-md-4">
     <div class="card rounded-0">
-      <div class="card-header ">
-        <h3 class="fw-bold" mb-0>
-          Register
-        </h3>
+      <div class="card-header">
+        <div class="d-flex ">
+          <h2 class="fw-bold me-3">
+            Register
+          </h2>
+          <div class="preloader-container text-center" *ngIf="loading">
+            <!-- <mat-spinner class="mx-auto mt-3"></mat-spinner> -->
+            <img src="../../../assets/Eclipse-1s-200px.svg" width="50px">
+          </div>
+        </div>
       </div>
       <div class="card-body">
         <!-- {{registerUserData | json}} -->

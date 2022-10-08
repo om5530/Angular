@@ -28,7 +28,7 @@ export class BlogService {
   }
 
   deleteBlog(id: any,url:any){
-    console.log(`${url}/${id}`)
+    // console.log(`${url}/${id}`)
     return this._http.delete<any>(`${url}/${id}`)
   }
   

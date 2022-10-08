@@ -9,7 +9,7 @@ import { AuthService } from '../../services/auth/auth.service';
   styleUrls: ['./register.component.scss']
 })
 export class RegisterComponent implements OnInit {
-
+  loading = false;
   message:any;
   success:any;
   registerUserData = {
@@ -25,9 +25,11 @@ export class RegisterComponent implements OnInit {
   }
 
   registeringUser() {
+    this.loading = true;
     this._auth.registerUser(this.registerUserData)
       .subscribe({
         next: (res) => {
+          this.loading = false;
           this.success = res.msg
           setTimeout(() => {
             this._router.navigate(['/login'])
@@ -36,6 +38,7 @@ export class RegisterComponent implements OnInit {
           this._blog.openSnackBar(`${res.msg}`);
         },
         error: (e) => { 
+          this.loading = false;
           this.message = e.error.message,
           // this._blog.openSnackBar(`${e.error.message}`);
           this._blog.openSnackBar(`${e.error.msg}`);

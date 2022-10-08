@@ -64,6 +64,7 @@ export class CreateBlogComponent implements OnInit {
           this.closeDialog()
         },
         error: (e) => {
+          this.loading = false;
           this._blog.openSnackBar(`${e.statusText}`)
          this.closeDialog()
         }
@@ -112,6 +113,7 @@ export class CreateBlogComponent implements OnInit {
           this.closeDialog()
         },
         error: (e) => {
+          this.loading = false;
           // console.log(e)
           this._blog.openSnackBar(`${e.statusText}`)
           this.closeDialog()
