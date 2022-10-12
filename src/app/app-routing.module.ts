@@ -5,7 +5,6 @@ import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { RegisterComponent } from './components/register/register.component';
-import { UrlShortnerComponent } from './components/url-shortner/url-shortner.component';
 import { GuardGuard } from './guard/guard.guard';
 
 const routes: Routes = [
@@ -35,10 +34,6 @@ const routes: Routes = [
   //   path:'single/:id',
   //   component:GetSingleBlogComponent
   // },
-  {
-    path:'url',
-    component:UrlShortnerComponent
-  },
   {
     path:'**', //this is called wild card
     component:PageNotFoundComponent

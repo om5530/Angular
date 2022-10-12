@@ -12,7 +12,7 @@ export class CreateBlogComponent implements OnInit {
   loading = false;
   authorId = this._auth.authorId()
   getBlog: any;
-  success:any;
+  // success:any;
   url = `https://bloggingsite12.herokuapp.com/getBlogs?authorId=${this.authorId}`
   blogData = {
     _id:null,
@@ -57,9 +57,8 @@ export class CreateBlogComponent implements OnInit {
       .subscribe({
         next: (res) => {
           this.loading = false;
-          this.success = res.msg
+          // this.success = res.msg
           this.getMultiple()
-          // alert(res.msg)
           this._blog.openSnackBar(`${res.msg}`);
           this.closeDialog()
         },
@@ -80,9 +79,10 @@ export class CreateBlogComponent implements OnInit {
   .subscribe(
     {
       next: (res) => {
-        this.getBlog = res.data
+        // console.log(res)
       },
-      error: (e) => console.log(e),
+      error: (e) => {
+      },
     }
   )
   }
@@ -90,7 +90,6 @@ export class CreateBlogComponent implements OnInit {
   changeData(){
     if (this.blogData._id) {
       this.updateData(this.blogData._id);
-      console.log(this.blogData)
     } else {
       this.createBlog();
     }
@@ -98,6 +97,12 @@ export class CreateBlogComponent implements OnInit {
 
   updateData(id: number) {
     this.loading = true;
+    let tags: any[] = this.blogData.tags
+    let subcategory: any[] = this.blogData.subcategory
+    tags = this.blogData.tags.toString().split(',')
+    subcategory = this.blogData.tags.toString().split(',')
+    this.blogData.tags = tags
+    this.blogData.subcategory = subcategory
     this._blog.updateBlog(
       id,
       this.blogData
@@ -105,16 +110,12 @@ export class CreateBlogComponent implements OnInit {
       {
         next: (res) => {
           this.loading = false;
-          this.getBlog = res.data
           this.getMultiple()
-          console.log(this.getBlog)
-          // alert(res.msg)
           this._blog.openSnackBar(`${res.msg}`);
           this.closeDialog()
         },
         error: (e) => {
           this.loading = false;
-          // console.log(e)
           this._blog.openSnackBar(`${e.statusText}`)
           this.closeDialog()
         }
@@ -123,11 +124,11 @@ export class CreateBlogComponent implements OnInit {
     )
   }
 
-  reset(form:any){
-      if(this.success){
-        setTimeout(() => {
-          return form.form.reset()
-        }, 2000);
-      }
-  }
+  // reset(form:any){
+  //     if(this.success){
+  //       setTimeout(() => {
+  //         return form.form.reset()
+  //       }, 2000);
+  //     }
+  // }
 }

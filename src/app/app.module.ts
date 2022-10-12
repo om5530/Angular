@@ -13,8 +13,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 import { HomeComponent } from './components/home/home.component'
 import { TokenInterceptorService } from './services/interceptor/token-interceptor.service';
 import { CreateBlogComponent } from './components/blog/create-blog/create-blog.component';
-import { UrlShortnerComponent } from './components/url-shortner/url-shortner.component';
-import { GetSingleBlogComponent } from './components/blog/get-single-blog/get-single-blog.component';
 import { GuardGuard } from './guard/guard.guard';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -35,8 +33,6 @@ import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
     PageNotFoundComponent,
     HomeComponent,
     CreateBlogComponent,
-    UrlShortnerComponent,
-    GetSingleBlogComponent,
     BlogComponent,
     DummyDialogComponent,
     ViewBlogComponent,

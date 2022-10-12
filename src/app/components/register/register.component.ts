@@ -40,7 +40,6 @@ export class RegisterComponent implements OnInit {
         error: (e) => { 
           this.loading = false;
           this.message = e.error.message,
-          // this._blog.openSnackBar(`${e.error.message}`);
           this._blog.openSnackBar(`${e.error.msg}`);
         }
     })

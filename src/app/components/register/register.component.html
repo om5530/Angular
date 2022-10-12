@@ -8,7 +8,6 @@
             Register
           </h2>
           <div class="preloader-container text-center" *ngIf="loading">
-            <!-- <mat-spinner class="mx-auto mt-3"></mat-spinner> -->
             <img src="../../../assets/Eclipse-1s-200px.svg" width="50px">
           </div>
         </div>
@@ -69,7 +68,6 @@
               [class.is-invalid]="email.invalid && email.touched"
               pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$" name="email" type="text"
               class="form-control is-invalid rounded-0" required>
-            <!-- <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email address is required and must be valid</small> -->
             <small class="text-danger">{{message}}</small>
 
             <div *ngIf="email.errors && (email.valid || email.touched)">

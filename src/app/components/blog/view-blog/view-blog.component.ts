@@ -11,7 +11,7 @@ export class ViewBlogComponent implements OnInit {
   constructor(@Inject(MAT_DIALOG_DATA) public view: any) { }
 
   ngOnInit(): void {
-    console.log(this.view)
+    // console.log(this.view)
   }
 
 }

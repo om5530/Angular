@@ -28,28 +28,18 @@ export class LoginComponent implements OnInit {
       {
         next: (res) => {
           this.loading = false;
-          //  console.log(res.data.token);
-          //  console.log(res.data.authorId);
            localStorage.setItem('token',res.data.token)
            localStorage.setItem('authorId',res.data.authorId)
           this.success = res.message
-          // alert(this.success)  
           this._blog.openSnackBar(`${res.message}`);
             this._router.navigate(['/blog'])
         },
         error: (e) =>  {
           this.error = e.error.message
-          // alert(this.error)
           this.loading = false;
           this._blog.openSnackBar(`${e.error.message}`);
         }
     }
     )
   }
-  // reset(form:any){
-  //   setTimeout(() => {
-  //     return form.form.reset()
-  //   }, 5000);
-   
-  // }
 }
